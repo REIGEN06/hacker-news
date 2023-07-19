@@ -1,35 +1,41 @@
 import axios from "axios";
 import { Dispatch } from "redux";
-const SET_NEWS = "SET_NEWS";
-const SET_NEWS_IDS = "SET_NEWS_IDS";
+import { SET_ALL_STORIES_BY_IDS, SET_NEW_STORIES_IDS } from "../../utils/const";
 
-//запрашиваем данные с сервера и сохраняем их в response
-export const getNewsIds = (): any => {
-  return async (dispatch: Dispatch) => {
-    const response = await axios
+//запрашиваем айди 100 новых постов
+export const getNewStoriesIds = (): any => {
+  return (dispatch: Dispatch) => {
+    axios
       .get(`https://hacker-news.firebaseio.com/v0/newstories.json`)
-      .then((value) => value.data.slice(0, 100));
-
-    dispatch(setNewsIds(response));
+      .then((response) => response.data.slice(0, 10))
+      .then((response) => dispatch(setNewStoriesIds(response)));
   };
 };
-export const getNewsByIds = (ids: any): any => {
-  return async (dispatch: Dispatch): Promise<void> => {
-    const response = await axios.get(
-      `https://hacker-news.firebaseio.com/v0/newstories.json`
+
+//запрашиваем данные всех постов по айди
+export const getAllStoriesByIds = (ids: Array<number>): any => {
+  return (dispatch: Dispatch): any => {
+    Promise.all(ids.map((id) => getStoryById(id))).then((response) =>
+      dispatch(setAllStoriesByIds(response))
     );
-
-    dispatch(setNews(response.data));
   };
 };
 
-//экшен криейтор, возвращает экшен (объект с типом и репозиторием)
-export const setNewsIds = (ids: Array<number>) => ({
-  type: SET_NEWS_IDS,
+//запрашиваем данные одного поста по айди
+const getStoryById = (id: number): Promise<void> => {
+  return axios
+    .get(`https://hacker-news.firebaseio.com/v0/item/${id}.json`)
+    .then((response) => response.data);
+};
+
+//экшен криейтор, устанавливает айди 100 новых постов
+export const setNewStoriesIds = (ids: Array<number>) => ({
+  type: SET_NEW_STORIES_IDS,
   payload: ids,
 });
 
-export const setNews = (news: any) => ({
-  type: SET_NEWS,
+//экшен криейтор, устанавливает данные 100 новых постов
+export const setAllStoriesByIds = (news: void[]) => ({
+  type: SET_ALL_STORIES_BY_IDS,
   payload: news,
 });
