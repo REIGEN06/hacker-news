@@ -1,7 +1,6 @@
 import {
   ActionTypes,
   SET_ALL_STORIES_BY_IDS,
-  SET_NEW_STORIES_IDS,
   StoryType,
 } from "../../utils/const";
 
@@ -21,12 +20,6 @@ export const newsReducer = (state = defaultState, action: ActionTypes) => {
       return {
         ...state,
         data: action.payload,
-      };
-
-    case SET_NEW_STORIES_IDS:
-      return {
-        ...state,
-        ids: action.payload,
       };
 
     default:

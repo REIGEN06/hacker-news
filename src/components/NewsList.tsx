@@ -7,14 +7,13 @@ type IdsArray = {
   data: Array<number>;
 };
 /* eslint-disable react/react-in-jsx-scope */
-export const NewsList = (props: IdsArray) => {
+export const NewsList = () => {
   const dispatch = useDispatch();
   const news = useSelector((state: any) => state.news.data);
   // console.log("news", news);
 
   useEffect(() => {
-    const ids = props.data;
-    dispatch(getAllStoriesByIds(ids)); //1
+    dispatch(getAllStoriesByIds()); //1
   }, []);
 
   return (
