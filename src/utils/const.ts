@@ -1,7 +1,7 @@
-import { setAllStoriesByIds } from "../redux/actions/newsAction";
+import { setStories } from "../redux/actions/newsAction";
 
-export const SET_ALL_STORIES_BY_IDS = "SET_NEWS_IDS";
-export type ActionTypes = ReturnType<typeof setAllStoriesByIds>;
+export const SET_ALL_STORIES = "SET_ALL_STORIES";
+export type ActionTypes = ReturnType<typeof setStories>;
 
 export type StoryType = {
   by?: string;
