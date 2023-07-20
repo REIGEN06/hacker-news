@@ -13,4 +13,5 @@ export type StoryType = {
   type?: string;
   url?: string;
   kids?: number[];
+  text?: string;
 };
