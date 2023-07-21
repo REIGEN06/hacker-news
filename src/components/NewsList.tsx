@@ -23,6 +23,15 @@ export const NewsList = () => {
     dispatch(setStories(data));
   }, [data]);
 
+  useEffect(()=>{
+    const timerId = setInterval(() => {
+      refetch();
+    }, 60000);
+    return()=>{
+      clearInterval(timerId);
+    }
+  },[])
+
   return (
     <>
       <StyledButton onClick={() => refetch()}>
