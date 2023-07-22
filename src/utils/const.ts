@@ -15,3 +15,6 @@ export type StoryType = {
   kids?: number[];
   text?: string;
 };
+export type StoryTypeObject = {
+  data: StoryType;
+};

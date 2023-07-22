@@ -1,6 +1,6 @@
 import { HomeIcon} from "../styledComponents/Icons";
-import {Link} from "react-router-dom";
 import styled from "styled-components";
+import { ColoredLink } from "../styledComponents/Links";
 /* eslint-disable react/react-in-jsx-scope */
 export const NavBar = () => {
   return (
@@ -21,15 +21,6 @@ const NavBarWrapper = styled.section`
   position: sticky;
 `;
 
-const NavbarLink = styled(Link)`
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  text-decoration: none;
+const NavbarLink = styled(ColoredLink)`
   padding: 10px;
-  color:#79818c;
-  &:hover {
-    background-color: #f5f6f8;
-  }
-  &:active{
-    background-color: #e6e7eb;
-    color:#79818c;
-}`;
+  `;

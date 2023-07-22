@@ -4,10 +4,39 @@ import styled from "styled-components";
 export const Title = styled.h2`
   font-family: Verdana, Geneva, sans-serif;
   font-weight: 300;
+  margin:10px 5px 10px 5px;
+  @media (max-width: 480px) {
+    font-size: 16px;
+  }
+`;
+export const BoldTitle = styled.h2`
+  font-family: Verdana, Geneva, sans-serif;
+  font-weight: bold;
   margin:10px;
   @media (max-width: 480px) {
     font-size: 16px;
   }
+`;
+export const Description = styled.p`
+  font-family: Verdana, Geneva, sans-serif;
+  font-weight: 300;
+  //костыль всё, что ниже| на ссылки все равно не работает
+  @media (max-width: 500px) { 
+    font-size: 14px;
+    max-width:200px;
+    max-height:200px;
+  }
+  @media (max-width: 1000px) { 
+    font-size: 14px;
+    max-width:400px;
+    max-height:400px;
+  }
+  @media (max-width: 1500px) { 
+    font-size: 14px;
+    max-width:800px;
+    max-height:800px;
+  }
+  
 `;
 export const Text = styled.p`
   font-family: Verdana, Geneva, sans-serif;
@@ -19,9 +48,7 @@ export const Text = styled.p`
 `;
 export const Author = styled(Text)`
   font-weight: bold;
-  margin:0px 5px 0px 0px;
 `;
 export const Score = styled(Text)`
   font-weight: bold;
-  padding: 0px 0px 5px;
 `;
