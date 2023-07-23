@@ -1,6 +1,7 @@
 import { HomeIcon} from "../styledComponents/Icons";
 import styled from "styled-components";
 import { ColoredLink } from "../styledComponents/Links";
+import { SearchStory } from "./SearchStory";
 /* eslint-disable react/react-in-jsx-scope */
 export const NavBar = () => {
   return (
@@ -8,6 +9,7 @@ export const NavBar = () => {
       <NavbarLink className="nav-link" to="/">
         <HomeIcon/>
       </NavbarLink>
+      <SearchStory/>
     </NavBarWrapper>
   );
 };
