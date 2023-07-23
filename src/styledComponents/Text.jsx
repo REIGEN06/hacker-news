@@ -41,17 +41,14 @@ export const Description = styled.p`
   @media (max-width: 500px) { 
     font-size: 14px;
     max-width:200px;
-    max-height:200px;
   }
-  @media (max-width: 1000px) { 
+  @media (min-width: 500px) and (max-width: 1000px) { 
     font-size: 14px;
     max-width:400px;
-    max-height:400px;
   }
-  @media (max-width: 1500px) { 
+  @media (min-width: 1000px) and (max-width: 1500px) { 
     font-size: 14px;
     max-width:800px;
-    max-height:800px;
   }
   
 `;
