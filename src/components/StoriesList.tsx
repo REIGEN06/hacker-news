@@ -1,5 +1,6 @@
 import { useEffect } from "react";
-import { setStories, getStories } from "../redux/actions/newsAction";
+import { setStories } from "../redux/actions/newsAction";
+import { getStories } from "../utils/HN_API";
 import { useDispatch, useSelector } from "react-redux";
 import { useQuery } from "react-query";
 import { StoryType } from "../utils/const";

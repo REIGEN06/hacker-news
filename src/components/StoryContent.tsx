@@ -8,7 +8,7 @@ import { ColoredA } from "../styledComponents/Links";
 import { UnixToLocaleTime, decodeHtml } from "../utils/functions";
 import { CommentCard } from "./CommentCard";
 import { useQuery } from "react-query";
-import { getStoriesByIds } from "../redux/actions/newsAction";
+import { getStoriesByIds } from "../utils/HN_API";
 import { StyledButton } from "../styledComponents/Buttons";
 
 export const StoryContent = (storyData: StoryTypeObject) => {

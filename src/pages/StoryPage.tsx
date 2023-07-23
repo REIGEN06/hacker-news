@@ -3,7 +3,7 @@
 import { StoryContent } from "../components/StoryContent";
 import { Title } from "../styledComponents/Text";
 import { useLocation } from "react-router-dom";
-import { getStoryById } from "../redux/actions/newsAction";
+import { getStoryById } from "../utils/HN_API";
 import { useQuery } from "react-query";
 import { DefaultPageWrapper } from "../styledComponents/PageWrappers";
 

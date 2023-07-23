@@ -1,31 +1,51 @@
 /* eslint-disable react/react-in-jsx-scope */
 import styled from "styled-components";
 import { Row } from "../styledComponents/Sections";
-import { Title, Author, Text, Score, Description } from "../styledComponents/Text";
+import { Author, Text, Score, Description } from "../styledComponents/Text";
 import { UnixToLocaleTime, decodeHtml } from "../utils/functions";
 import { StoryType, StoryTypeObject } from "../utils/const";
-export const CommentCard = (data:StoryTypeObject) => {
-    const comment = data.data;
+import { StyledButton } from "../styledComponents/Buttons";
+import { getStoriesByIds } from "../utils/HN_API";
+import { useQuery } from "react-query";
+
+export const CommentCard = (story:StoryTypeObject) => {
+    const comment = story.data;
+    let wantKids = undefined;
+    const { isLoading, isError, data, refetch, isFetching } = useQuery((comment.id).toString(),  ()=>getStoriesByIds(comment.kids),
+        {
+            refetchOnWindowFocus: false,
+            enabled: wantKids,
+        })
+
+    console.log(data);
     
-    return (
-        <CommentWrapper>
-            <Row>
-                {comment.deleted
-                    ?<Text>Комментарий был удален</Text>
-                    :<Author>{comment.by}</Author>
-                }
-                <Text>{UnixToLocaleTime(comment.time)}</Text>
-            </Row>
-            <Description>{decodeHtml(comment.text).replace(/<\/?[^>]+>/g, '')}</Description>
-            <Text>Ответов: {comment.kids}</Text>
-        </CommentWrapper>
-    );
+    const getKidsComments = ()=>{
+        wantKids = true;
+    }
+
+    if (!comment.deleted){
+        return (
+            <CommentWrapper>
+                <Row>
+                    <Author>{comment.by}</Author>
+                    <Text>{UnixToLocaleTime(comment.time)}</Text>
+                </Row>
+                <Description>{decodeHtml(comment.text).replace(/<\/?[^>]+>/g, '')}</Description>
+                <StyledButton onClick={() => getKidsComments()}>Ответов: {comment.kids?.length || 0}</StyledButton>
+                {data&&data.map((kidsComment:any)=><CommentCard key={kidsComment.id} data={kidsComment}/>)}
+            </CommentWrapper>
+        )
+    } else {
+        return (<></>)
+    }
   };
 
   const CommentWrapper = styled.section`
-  border: 1.5px solid #dce1e6;
+  border: none;
   margin:20px;
-  align-items:center;
+  display:flex;
+  width:90%; //хз, по левому краю не получается комменты поставить
+  flex-direction:column;
   border-radius:10px;
   padding: 5px 10px 5px;
   background: #ffffff;
