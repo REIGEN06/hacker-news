@@ -13,7 +13,6 @@ import { StyledButton } from "../styledComponents/Buttons";
 
 export const StoryContent = (storyData: StoryTypeObject) => {
   const story=storyData.data;
-  const commentsCount = story.descendants;
   const commentsIds = story.kids;
   
   const { isLoading, isError, data, refetch, isFetching } = useQuery("comment",  ()=>getStoriesByIds(commentsIds),
@@ -23,43 +22,27 @@ export const StoryContent = (storyData: StoryTypeObject) => {
   
   return (
     <>
-      {isError ? (
-        <Title>ОШИБКА</Title>
-      ) : isLoading ? (
-        <Title>Пост загружается...</Title>
-      ) : (
-        <>
-          <Title>{story.title}</Title>
+      <Title>{story.title}</Title>
 
-          <ColoredA href={story.url}>
-            <Text>Перейти к источнику</Text>
-          </ColoredA>
+      <ColoredA href={story.url}>
+        <Text>Перейти к источнику</Text>
+      </ColoredA>
 
-          <Row>
-            <Author>{story.by}</Author>
-            <Text>{UnixToLocaleTime(story.time)}</Text>
-            <Score>⭐{story.score}</Score>
-          </Row>
+      <Row>
+        <Author>{story.by}</Author>
+        <Text>{UnixToLocaleTime(story.time)}</Text>
+        <Score>⭐{story.score}</Score>
+      </Row>
 
-          {story.text && <Description>{decodeHtml(story.text).replace(/<\/?[^>]+>/g, '')}</Description>}
+      {story.text && <Description>{decodeHtml(story.text).replace(/<\/?[^>]+>/g, '')}</Description>}
 
-          <Text>{commentsCount} {
-            commentsCount && commentsCount > 0 
-            ? "комментарий"
-            : commentsCount && commentsCount > 1 
-            ? "комментария" 
-            : "комментариев"} 
-          </Text>
+      <Text>Комментариев: {story.descendants}</Text>
 
-          <StyledButton onClick={() => refetch()}>
-            {isFetching ? <p>Коментарии обновляются...</p> : <p>Обновить комментарии</p>}
-          </StyledButton>
+      <StyledButton onClick={() => refetch()}>
+        {isFetching ? <p>Коментарии обновляются...</p> : <p>Обновить комментарии</p>}
+      </StyledButton>
 
-          {data&&data.map((comment:any)=><CommentCard key={comment.id} data={comment}/>)}
-        </>
-      )}
-
-
+      {data&&data.map((comment:any)=><CommentCard key={comment.id} data={comment}/>)}
     </>
   );
 };

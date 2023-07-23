@@ -10,23 +10,18 @@ import { UnixToLocaleTime } from "../utils/functions";
 
 export const StoryCard = (storyData: StoryTypeObject) => {
   const story = storyData.data;
-  const commentsCount = story.descendants;
   const path = `/item/${story.id}`;
   return (
     <NewsCardWrapperLink className="nav-link" to={path}>
         <Title>{story.title}</Title>
+
         <Row>
           <Author>{story.by}</Author>
           <Text>{UnixToLocaleTime(story.time)}</Text>
           <Score>⭐{story.score}</Score>
         </Row>
-        <Text>{commentsCount} {
-        commentsCount && commentsCount > 0 
-        ? "комментарий"
-        : commentsCount && commentsCount > 1 
-        ? "комментария" 
-        : "комментариев"} 
-      </Text>
+
+        <Text>Комментариев: {story.descendants}</Text>
     </NewsCardWrapperLink>
   );
 };
