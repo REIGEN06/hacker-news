@@ -1,28 +1,23 @@
 /* eslint-disable react/react-in-jsx-scope */
 import styled from "styled-components";
 import { Row } from "../styledComponents/Sections";
-import { Author, Text, Score, Description } from "../styledComponents/Text";
+import { Author, Text, Description } from "../styledComponents/Text";
 import { UnixToLocaleTime, decodeHtml } from "../utils/functions";
-import { StoryType, StoryTypeObject } from "../utils/const";
+import { StoryTypeObject } from "../utils/const";
 import { StyledButton } from "../styledComponents/Buttons";
 import { getStoriesByIds } from "../utils/HN_API";
 import { useQuery } from "react-query";
+import { useState } from "react";
 
 export const CommentCard = (story:StoryTypeObject) => {
     const comment = story.data;
-    let wantKids = undefined;
+    const [wantKids,setWantKids] = useState(false);
     const { isLoading, isError, data, refetch, isFetching } = useQuery((comment.id).toString(),  ()=>getStoriesByIds(comment.kids),
         {
             refetchOnWindowFocus: false,
             enabled: wantKids,
         })
-
-    console.log(data);
     
-    const getKidsComments = ()=>{
-        wantKids = true;
-    }
-
     if (!comment.deleted){
         return (
             <CommentWrapper>
@@ -31,7 +26,7 @@ export const CommentCard = (story:StoryTypeObject) => {
                     <Text>{UnixToLocaleTime(comment.time)}</Text>
                 </Row>
                 <Description>{decodeHtml(comment.text).replace(/<\/?[^>]+>/g, '')}</Description>
-                <StyledButton onClick={() => getKidsComments()}>Ответов: {comment.kids?.length || 0}</StyledButton>
+                <StyledButton onClick={() => setWantKids(true)}>Ответов: {comment.kids?.length || 0}</StyledButton>
                 {data&&data.map((kidsComment:any)=><CommentCard key={kidsComment.id} data={kidsComment}/>)}
             </CommentWrapper>
         )
