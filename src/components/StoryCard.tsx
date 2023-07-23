@@ -8,7 +8,7 @@ import { Row } from "../styledComponents/Sections";
 import { ColoredLink } from "../styledComponents/Links";
 import { UnixToLocaleTime } from "../utils/functions";
 
-export const NewsCard = (storyData: StoryTypeObject) => {
+export const StoryCard = (storyData: StoryTypeObject) => {
   const story = storyData.data;
   const commentsCount = story.descendants;
   const path = `/item/${story.id}`;

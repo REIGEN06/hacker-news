@@ -1,7 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/react-in-jsx-scope */
 
-import styled from "styled-components";
 import { StoryTypeObject } from "../utils/const";
 import { Row } from "../styledComponents/Sections";
 import { Title, Author, Text, Score, Description } from "../styledComponents/Text";
@@ -12,7 +11,7 @@ import { useQuery } from "react-query";
 import { getStoriesByIds } from "../redux/actions/newsAction";
 import { StyledButton } from "../styledComponents/Buttons";
 
-export const NewsCardExtension = (storyData: StoryTypeObject) => {
+export const StoryContent = (storyData: StoryTypeObject) => {
   const story=storyData.data;
   const commentsCount = story.descendants;
   const commentsIds = story.kids;

@@ -3,11 +3,9 @@ import styled from "styled-components";
 import { Row } from "../styledComponents/Sections";
 import { Title, Author, Text, Score, Description } from "../styledComponents/Text";
 import { UnixToLocaleTime, decodeHtml } from "../utils/functions";
-export const CommentCard = (data:any) => {
+import { StoryType, StoryTypeObject } from "../utils/const";
+export const CommentCard = (data:StoryTypeObject) => {
     const comment = data.data;
-    console.log(comment);
-
-   
     
     return (
         <CommentWrapper>
@@ -19,6 +17,7 @@ export const CommentCard = (data:any) => {
                 <Text>{UnixToLocaleTime(comment.time)}</Text>
             </Row>
             <Description>{decodeHtml(comment.text).replace(/<\/?[^>]+>/g, '')}</Description>
+            <Text>Ответов: {comment.kids}</Text>
         </CommentWrapper>
     );
   };

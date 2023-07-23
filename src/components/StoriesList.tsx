@@ -3,13 +3,12 @@ import { setStories, getStories } from "../redux/actions/newsAction";
 import { useDispatch, useSelector } from "react-redux";
 import { useQuery } from "react-query";
 import { StoryType } from "../utils/const";
-import { NewsCard } from "./NewsCard";
-import styled from "styled-components";
+import { StoryCard } from "./StoryCard";
 import { Title } from "../styledComponents/Text";
 import { StyledButton } from "../styledComponents/Buttons";
 
 /* eslint-disable react/react-in-jsx-scope */
-export const NewsList = () => {
+export const StoriesList = () => {
   const dispatch = useDispatch();
   const { isLoading, isError, data, refetch, isFetching } = useQuery(
     "stories",
@@ -45,7 +44,7 @@ export const NewsList = () => {
         <Title>Посты загружаются...</Title>
       ) : (
         news &&
-        news.map((story: StoryType) => <NewsCard key={story.id} data={story} />)
+        news.map((story: StoryType) => <StoryCard key={story.id} data={story} />)
       )}
     </>
   );
