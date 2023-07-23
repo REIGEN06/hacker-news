@@ -6,6 +6,7 @@ import { newsReducer } from "./reducers/newsReducer";
 const rootReducer = combineReducers({
   news: newsReducer,
 });
+export type rootReducerType=ReturnType<typeof rootReducer>;
 
 export const store = createStore(
   rootReducer,

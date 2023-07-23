@@ -7,6 +7,7 @@ import { StoryType } from "../utils/const";
 import { StoryCard } from "./StoryCard";
 import { Title } from "../styledComponents/Text";
 import { StyledButton } from "../styledComponents/Buttons";
+import { rootReducerType } from "../redux/store";
 
 /* eslint-disable react/react-in-jsx-scope */
 export const StoriesList = () => {
@@ -18,7 +19,7 @@ export const StoriesList = () => {
       refetchOnWindowFocus: false,
     }
   );
-  const news = useSelector((state: any) => state.news.data);
+  const news = useSelector((state: rootReducerType) => state.news.data);
 
   useEffect(() => {
     dispatch(setStories(data));
