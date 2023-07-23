@@ -2,10 +2,12 @@
 import styled from "styled-components";
 import { Row } from "../styledComponents/Sections";
 import { Title, Author, Text, Score, Description } from "../styledComponents/Text";
-import { UnixToLocaleTime } from "../utils/functions";
+import { UnixToLocaleTime, decodeHtml } from "../utils/functions";
 export const CommentCard = (data:any) => {
     const comment = data.data;
     console.log(comment);
+
+   
     
     return (
         <CommentWrapper>
@@ -16,7 +18,7 @@ export const CommentCard = (data:any) => {
                 }
                 <Text>{UnixToLocaleTime(comment.time)}</Text>
             </Row>
-            <Description>{comment.text}</Description>
+            <Description>{decodeHtml(comment.text).replace(/<\/?[^>]+>/g, '')}</Description>
         </CommentWrapper>
     );
   };

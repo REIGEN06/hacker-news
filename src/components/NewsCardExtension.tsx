@@ -6,7 +6,7 @@ import { StoryTypeObject } from "../utils/const";
 import { Row } from "../styledComponents/Sections";
 import { Title, Author, Text, Score, Description } from "../styledComponents/Text";
 import { ColoredA } from "../styledComponents/Links";
-import { UnixToLocaleTime } from "../utils/functions";
+import { UnixToLocaleTime, decodeHtml } from "../utils/functions";
 import { CommentCard } from "./CommentCard";
 import { useQuery } from "react-query";
 import { getStoriesByIds } from "../redux/actions/newsAction";
@@ -42,7 +42,7 @@ export const NewsCardExtension = (storyData: StoryTypeObject) => {
             <Score>⭐{story.score}</Score>
           </Row>
 
-          {story.text && <Description>{story.text}</Description>}
+          {story.text && <Description>{decodeHtml(story.text).replace(/<\/?[^>]+>/g, '')}</Description>}
 
           <Text>{commentsCount} {
             commentsCount && commentsCount > 0 
