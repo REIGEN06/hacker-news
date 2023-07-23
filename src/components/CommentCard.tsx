@@ -25,8 +25,11 @@ export const CommentCard = (story:StoryTypeObject) => {
                     <Author>{comment.by}</Author>
                     <Text>{UnixToLocaleTime(comment.time)}</Text>
                 </Row>
+                
                 <Description>{decodeHtml(comment.text).replace(/<\/?[^>]+>/g, '')}</Description>
-                <StyledButton onClick={() => setWantKids(true)}>Ответов: {comment.kids?.length || 0}</StyledButton>
+
+                {comment.kids?.length&&<StyledButton onClick={() => setWantKids(true)}>Ответов: {comment.kids?.length}</StyledButton>}
+
                 {data&&data.map((kidsComment:any)=><CommentCard key={kidsComment.id} data={kidsComment}/>)}
             </CommentWrapper>
         )
