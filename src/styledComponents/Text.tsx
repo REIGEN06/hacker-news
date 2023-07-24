@@ -1,5 +1,4 @@
-import styled from "styled-components";
-/* eslint-disable react/react-in-jsx-scope */
+import styled from 'styled-components';
 
 export const Title = styled.h2`
 	font-family: Verdana, Geneva, sans-serif;

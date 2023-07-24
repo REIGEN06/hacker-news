@@ -1,5 +1,4 @@
-import styled from "styled-components";
-/* eslint-disable react/react-in-jsx-scope */
+import styled from 'styled-components';
 
 export const Row = styled.section`
 	display: flex;

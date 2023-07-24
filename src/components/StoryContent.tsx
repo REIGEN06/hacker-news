@@ -1,21 +1,21 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/react-in-jsx-scope */
-import { StoryType, StoryTypeObject } from "../utils/const/storyConst";
-import { Row } from "../styledComponents/Sections";
-import { Title, Text, BoldText } from "../styledComponents/Text";
-import { ColoredA } from "../styledComponents/Links";
-import { UnixToLocaleTime, decodeHtml } from "../utils/functions";
-import { CommentCard } from "./CommentCard";
-import { useQuery } from "react-query";
-import { getStoriesByIds } from "../utils/HN_API";
-import { StyledButton } from "../styledComponents/Buttons";
+import { StoryType, StoryTypeObject } from '../utils/const/storyConst';
+import { Row } from '../styledComponents/Sections';
+import { Title, Text, BoldText } from '../styledComponents/Text';
+import { ColoredA } from '../styledComponents/Links';
+import { UnixToLocaleTime, decodeHtml } from '../utils/functions';
+import CommentCard from './CommentCard';
+import { useQuery } from 'react-query';
+import { getStoriesByIds } from '../utils/hnApi';
+import { StyledButton } from '../styledComponents/Buttons';
 
-export const StoryContent = (storyData: StoryTypeObject) => {
+const StoryContent = (storyData: StoryTypeObject) => {
 	const story = storyData.data;
 	const commentsIds = story.kids;
 
 	const { data, refetch, isFetching } = useQuery(
-		"comment",
+		'comment',
 		() => getStoriesByIds(commentsIds),
 		{
 			refetchOnWindowFocus: false,
@@ -37,7 +37,7 @@ export const StoryContent = (storyData: StoryTypeObject) => {
 			</Row>
 
 			{story.text && (
-				<BoldText>{decodeHtml(story.text).replace(/<\/?[^>]+>/g, "")}</BoldText>
+				<BoldText>{decodeHtml(story.text).replace(/<\/?[^>]+>/g, '')}</BoldText>
 			)}
 
 			<Text>Комментариев: {story.descendants}</Text>
@@ -57,3 +57,5 @@ export const StoryContent = (storyData: StoryTypeObject) => {
 		</>
 	);
 };
+
+export default StoryContent;

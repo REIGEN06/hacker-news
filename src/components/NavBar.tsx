@@ -1,8 +1,8 @@
-import { HomeIcon } from "../styledComponents/Icons";
-import styled from "styled-components";
-import { ColoredLink } from "../styledComponents/Links";
-/* eslint-disable react/react-in-jsx-scope */
-export const NavBar = () => {
+import { HomeIcon } from '../styledComponents/Icons';
+import styled from 'styled-components';
+import { ColoredLink } from '../styledComponents/Links';
+
+const NavBar = () => {
 	return (
 		<NavBarWrapper>
 			<NavbarLink className="nav-link" to="/">
@@ -11,6 +11,8 @@ export const NavBar = () => {
 		</NavBarWrapper>
 	);
 };
+
+export default NavBar;
 
 const NavBarWrapper = styled.section`
 	align-items: center;

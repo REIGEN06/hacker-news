@@ -1,6 +1,5 @@
-import styled from "styled-components";
-import { Link } from "react-router-dom";
-/* eslint-disable react/react-in-jsx-scope */
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const ColoredLink = styled(Link)`
 	font-family: Verdana, Geneva, sans-serif;

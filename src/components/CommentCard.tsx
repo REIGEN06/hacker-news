@@ -1,15 +1,14 @@
-/* eslint-disable react/react-in-jsx-scope */
-import styled from "styled-components";
-import { Row } from "../styledComponents/Sections";
-import { Text, BoldText } from "../styledComponents/Text";
-import { UnixToLocaleTime, decodeHtml } from "../utils/functions";
-import { StoryType, StoryTypeObject } from "../utils/const/storyConst";
-import { StyledButton } from "../styledComponents/Buttons";
-import { getStoriesByIds } from "../utils/HN_API";
-import { useQuery } from "react-query";
-import { useState } from "react";
+import styled from 'styled-components';
+import { Row } from '../styledComponents/Sections';
+import { Text, BoldText } from '../styledComponents/Text';
+import { UnixToLocaleTime, decodeHtml } from '../utils/functions';
+import { StoryType, StoryTypeObject } from '../utils/const/storyConst';
+import { StyledButton } from '../styledComponents/Buttons';
+import { getStoriesByIds } from '../utils/hnApi';
+import { useQuery } from 'react-query';
+import { useState } from 'react';
 
-export const CommentCard = (story: StoryTypeObject) => {
+const CommentCard = (story: StoryTypeObject) => {
 	const comment = story.data;
 	const [wantKids, setWantKids] = useState(false);
 	const { data } = useQuery(
@@ -30,7 +29,7 @@ export const CommentCard = (story: StoryTypeObject) => {
 				</Row>
 
 				<BoldText>
-					{decodeHtml(comment.text).replace(/<\/?[^>]+>/g, "")}
+					{decodeHtml(comment.text).replace(/<\/?[^>]+>/g, '')}
 				</BoldText>
 
 				{comment.kids?.length && (
@@ -46,9 +45,11 @@ export const CommentCard = (story: StoryTypeObject) => {
 			</CommentWrapper>
 		);
 	} else {
-		return <></>;
+		return null;
 	}
 };
+
+export default CommentCard;
 
 const CommentWrapper = styled.section`
 	border: none;

@@ -1,10 +1,10 @@
-/* eslint-disable react/react-in-jsx-scope */
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { MainPage } from "./pages/MainPage";
-import { StoryPage } from "./pages/StoryPage";
-import { ErrorPage } from "./pages/ErrorPage";
-import { NavBar } from "./components/NavBar";
-export const App = () => {
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import MainPage from './pages/MainPage';
+import StoryPage from './pages/StoryPage';
+import ErrorPage from './pages/ErrorPage';
+import NavBar from './components/NavBar';
+
+const App = () => {
 	return (
 		<BrowserRouter>
 			<NavBar />
@@ -16,3 +16,5 @@ export const App = () => {
 		</BrowserRouter>
 	);
 };
+
+export default App;

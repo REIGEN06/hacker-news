@@ -1,5 +1,4 @@
-/* eslint-disable react/react-in-jsx-scope */
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const DefaultPageWrapper = styled.section`
 	border: 1px solid #dce1e6;

@@ -1,5 +1,5 @@
-import axios from "axios";
-import { StoryType } from "./const/storyConst";
+import axios from 'axios';
+import { StoryType } from './const/storyConst';
 
 //запрашиваем ДАННЫЕ всех постов по айди
 export const getStoriesByIds = (
@@ -26,6 +26,6 @@ export const getStoryById = (id: number): Promise<StoryType> => {
 //запрашиваем АЙДИ 100 новых постов
 const getNewStoriesIds = (): Promise<Array<number>> => {
 	return axios
-		.get(`https://hacker-news.firebaseio.com/v0/newstories.json`)
+		.get('https://hacker-news.firebaseio.com/v0/newstories.json')
 		.then((response) => response.data.slice(0, 100));
 };

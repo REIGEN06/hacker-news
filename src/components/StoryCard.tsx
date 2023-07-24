@@ -1,13 +1,11 @@
-/* eslint-disable react/no-unescaped-entities */
-/* eslint-disable react/react-in-jsx-scope */
-import styled from "styled-components";
-import { StoryTypeObject } from "../utils/const/storyConst";
-import { Title, Text, BoldText } from "../styledComponents/Text";
-import { Row } from "../styledComponents/Sections";
-import { ColoredLink } from "../styledComponents/Links";
-import { UnixToLocaleTime } from "../utils/functions";
+import styled from 'styled-components';
+import { StoryTypeObject } from '../utils/const/storyConst';
+import { Title, Text, BoldText } from '../styledComponents/Text';
+import { Row } from '../styledComponents/Sections';
+import { ColoredLink } from '../styledComponents/Links';
+import { UnixToLocaleTime } from '../utils/functions';
 
-export const StoryCard = (storyData: StoryTypeObject) => {
+const StoryCard = (storyData: StoryTypeObject) => {
 	const story = storyData.data;
 	const path = `/item/${story.id}`;
 	return (
@@ -24,6 +22,8 @@ export const StoryCard = (storyData: StoryTypeObject) => {
 		</NewsCardWrapperLink>
 	);
 };
+
+export default StoryCard;
 
 const NewsCardWrapperLink = styled(ColoredLink)`
 	border: solid #dce1e6;

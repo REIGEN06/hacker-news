@@ -1,19 +1,18 @@
-import { useEffect } from "react";
-import { setStories } from "../redux/actions/actionCreator";
-import { getStories } from "../utils/HN_API";
-import { useDispatch, useSelector } from "react-redux";
-import { useQuery } from "react-query";
-import { ArrayStoryType, StoryType } from "../utils/const/storyConst";
-import { StoryCard } from "./StoryCard";
-import { Title } from "../styledComponents/Text";
-import { StyledButton } from "../styledComponents/Buttons";
-import { RootState } from "../redux/store";
+import { useEffect } from 'react';
+import { setStories } from '../redux/actions/actionCreator';
+import { getStories } from '../utils/hnApi';
+import { useDispatch, useSelector } from 'react-redux';
+import { useQuery } from 'react-query';
+import { ArrayStoryType, StoryType } from '../utils/const/storyConst';
+import StoryCard from './StoryCard';
+import { Title } from '../styledComponents/Text';
+import { StyledButton } from '../styledComponents/Buttons';
+import { RootState } from '../redux/store';
 
-/* eslint-disable react/react-in-jsx-scope */
-export const StoriesList = () => {
+const StoriesList = () => {
 	const dispatch = useDispatch();
 	const { isLoading, isError, data, refetch, isFetching } = useQuery(
-		"stories",
+		'stories',
 		() => getStories(),
 		{
 			refetchOnWindowFocus: false,
@@ -56,3 +55,5 @@ export const StoriesList = () => {
 		</>
 	);
 };
+
+export default StoriesList;

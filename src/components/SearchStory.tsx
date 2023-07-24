@@ -1,8 +1,8 @@
-import { ColoredLink } from "../styledComponents/Links";
-import { useState } from "react";
-/* eslint-disable react/react-in-jsx-scope */
-export const SearchStory = () => {
-	const [input, setInput] = useState("36823605");
+import { ColoredLink } from '../styledComponents/Links';
+import { useState } from 'react';
+
+const SearchStory = () => {
+	const [input, setInput] = useState('36823605');
 	const path = `/item/${input}`;
 	return (
 		<>
@@ -18,3 +18,5 @@ export const SearchStory = () => {
 		</>
 	);
 };
+
+export default SearchStory;

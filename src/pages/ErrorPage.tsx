@@ -1,8 +1,9 @@
-/* eslint-disable react/react-in-jsx-scope */
-export const ErrorPage = () => {
+const ErrorPage = () => {
 	return (
 		<>
 			<h2>Error page</h2>
 		</>
 	);
 };
+
+export default ErrorPage;
