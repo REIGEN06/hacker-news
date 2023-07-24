@@ -2,13 +2,7 @@
 /* eslint-disable react/react-in-jsx-scope */
 import { StoryType, StoryTypeObject } from "../utils/const/storyConst";
 import { Row } from "../styledComponents/Sections";
-import {
-	Title,
-	Author,
-	Text,
-	Score,
-	Description,
-} from "../styledComponents/Text";
+import { Title, Text, BoldText } from "../styledComponents/Text";
 import { ColoredA } from "../styledComponents/Links";
 import { UnixToLocaleTime, decodeHtml } from "../utils/functions";
 import { CommentCard } from "./CommentCard";
@@ -37,15 +31,13 @@ export const StoryContent = (storyData: StoryTypeObject) => {
 			</ColoredA>
 
 			<Row>
-				<Author>{story.by}</Author>
+				<BoldText>{story.by}</BoldText>
 				<Text>{UnixToLocaleTime(story.time)}</Text>
-				<Score>⭐{story.score}</Score>
+				<BoldText>⭐{story.score}</BoldText>
 			</Row>
 
 			{story.text && (
-				<Description>
-					{decodeHtml(story.text).replace(/<\/?[^>]+>/g, "")}
-				</Description>
+				<BoldText>{decodeHtml(story.text).replace(/<\/?[^>]+>/g, "")}</BoldText>
 			)}
 
 			<Text>Комментариев: {story.descendants}</Text>
