@@ -7,7 +7,7 @@ export const getStoriesByIds = (ids:number[]|undefined): Promise<StoryType[]>|un
 };
 
 //запрашиваем ДАННЫЕ всех НОВЫХ постов
-export const getStories = (): Promise<StoryType | StoryType[]> => {
+export const getStories = (): Promise<StoryType[]> => {
 return getNewStoriesIds().then((ids) =>
     Promise.all(ids.map((id: number) => getStoryById(id)))
 );
