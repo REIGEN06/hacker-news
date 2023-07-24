@@ -15,4 +15,4 @@ export type StoryTypeObject = {
 	data: StoryType;
 };
 
-export type ArrayStoryType = Array<StoryType> | undefined;
+export type ArrayStoryType = StoryType[] | undefined;
