@@ -3,7 +3,7 @@ import { StoryTypeObject } from '../utils/const/storyConst';
 import { Title, Text, BoldText } from '../ui/Text';
 import { Row } from '../ui/Sections';
 import { ColoredLink } from '../ui/Links';
-import { UnixToLocaleTime } from '../functions/functions';
+import { UnixToLocaleTime } from '../utils/functions/functions';
 
 const StoryCard = (storyData: StoryTypeObject) => {
 	const story = storyData.data;

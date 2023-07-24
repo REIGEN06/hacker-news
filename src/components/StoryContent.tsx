@@ -2,7 +2,7 @@ import { StoryType, StoryTypeObject } from '../utils/const/storyConst';
 import { Row } from '../ui/Sections';
 import { Title, Text, BoldText } from '../ui/Text';
 import { ColoredLinkBlueWithoutBG } from '../ui/Links';
-import { UnixToLocaleTime, decodeHtml } from '../functions/functions';
+import { UnixToLocaleTime, decodeHtml } from '../utils/functions/functions';
 import CommentCard from './CommentCard';
 import { useQuery } from 'react-query';
 import { getStoriesByIds } from '../api/hnApi';

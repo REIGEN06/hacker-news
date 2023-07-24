@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Row } from '../ui/Sections';
 import { Text, BoldText } from '../ui/Text';
-import { UnixToLocaleTime, decodeHtml } from '../functions/functions';
+import { UnixToLocaleTime, decodeHtml } from '../utils/functions/functions';
 import { StoryType, StoryTypeObject } from '../utils/const/storyConst';
 import { StyledButton } from '../ui/Buttons';
 import { getStoriesByIds } from '../api/hnApi';
