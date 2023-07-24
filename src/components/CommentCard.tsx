@@ -15,7 +15,6 @@ const CommentCard = (story: StoryTypeObject) => {
 		comment.id.toString(),
 		() => getStoriesByIds(comment.kids),
 		{
-			refetchOnWindowFocus: false,
 			enabled: wantKids,
 		}
 	);

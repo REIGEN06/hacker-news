@@ -13,10 +13,7 @@ const StoriesList = () => {
 	const dispatch = useDispatch();
 	const { isLoading, isError, data, refetch, isFetching } = useQuery(
 		'stories',
-		() => getStories(),
-		{
-			refetchOnWindowFocus: false,
-		}
+		() => getStories()
 	);
 
 	const news = useSelector(

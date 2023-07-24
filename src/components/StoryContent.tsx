@@ -12,12 +12,8 @@ const StoryContent = (storyData: StoryTypeObject) => {
 	const story = storyData.data;
 	const commentsIds = story.kids;
 
-	const { data, refetch, isFetching } = useQuery(
-		'comment',
-		() => getStoriesByIds(commentsIds),
-		{
-			refetchOnWindowFocus: false,
-		}
+	const { data, refetch, isFetching } = useQuery('comment', () =>
+		getStoriesByIds(commentsIds)
 	);
 
 	return (

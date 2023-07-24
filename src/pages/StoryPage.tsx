@@ -9,12 +9,8 @@ const StoryPage = () => {
 	const location = useLocation();
 	const path = location.pathname.split('/');
 	const id = +path[path.length - 1];
-	const { isLoading, isError, data } = useQuery(
-		'story',
-		() => getStoryById(id),
-		{
-			refetchOnWindowFocus: false,
-		}
+	const { isLoading, isError, data } = useQuery('story', () =>
+		getStoryById(id)
 	);
 
 	return (
