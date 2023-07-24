@@ -39,15 +39,11 @@ const StoriesList = () => {
 				{isFetching ? <p>Обновляется...</p> : <p>Обновить</p>}
 			</StyledButton>
 
-			{isError ? (
-				<Title>ОШИБКА</Title>
-			) : isLoading ? (
-				<Title>Посты загружаются...</Title>
-			) : (
-				news?.map((story: StoryType) => (
-					<StoryCard key={story.id} data={story} />
-				))
-			)}
+			{isError && <Title>ОШИБКА</Title>}
+			{isLoading && <Title>Посты загружаются...</Title>}
+			{news?.map((story: StoryType) => (
+				<StoryCard key={story.id} data={story} />
+			))}
 		</>
 	);
 };

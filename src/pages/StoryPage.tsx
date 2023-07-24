@@ -15,13 +15,9 @@ const StoryPage = () => {
 
 	return (
 		<DefaultPageWrapper>
-			{isError ? (
-				<Title>ОШИБКА</Title>
-			) : isLoading ? (
-				<Title>Пост загружается...</Title>
-			) : (
-				data && <StoryContent key={data.id} data={data} />
-			)}
+			{isError && <Title>ОШИБКА</Title>}
+			{isLoading && <Title>Пост загружается...</Title>}
+			{data && <StoryContent key={data.id} data={data} />}
 		</DefaultPageWrapper>
 	);
 };
