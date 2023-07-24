@@ -1,9 +1,14 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/react-in-jsx-scope */
-
-import { StoryTypeObject } from "../utils/const";
+import { StoryType, StoryTypeObject } from "../utils/const/storyConst";
 import { Row } from "../styledComponents/Sections";
-import { Title, Author, Text, Score, Description } from "../styledComponents/Text";
+import {
+	Title,
+	Author,
+	Text,
+	Score,
+	Description,
+} from "../styledComponents/Text";
 import { ColoredA } from "../styledComponents/Links";
 import { UnixToLocaleTime, decodeHtml } from "../utils/functions";
 import { CommentCard } from "./CommentCard";
@@ -12,37 +17,51 @@ import { getStoriesByIds } from "../utils/HN_API";
 import { StyledButton } from "../styledComponents/Buttons";
 
 export const StoryContent = (storyData: StoryTypeObject) => {
-  const story=storyData.data;
-  const commentsIds = story.kids;
-  
-  const { isLoading, isError, data, refetch, isFetching } = useQuery("comment",  ()=>getStoriesByIds(commentsIds),
-  {
-    refetchOnWindowFocus: false,
-  })
-  
-  return (
-    <>
-      <Title>{story.title}</Title>
+	const story = storyData.data;
+	const commentsIds = story.kids;
 
-      <ColoredA href={story.url}>
-        <Text>Перейти к источнику</Text>
-      </ColoredA>
+	const { data, refetch, isFetching } = useQuery(
+		"comment",
+		() => getStoriesByIds(commentsIds),
+		{
+			refetchOnWindowFocus: false,
+		}
+	);
 
-      <Row>
-        <Author>{story.by}</Author>
-        <Text>{UnixToLocaleTime(story.time)}</Text>
-        <Score>⭐{story.score}</Score>
-      </Row>
+	return (
+		<>
+			<Title>{story.title}</Title>
 
-      {story.text && <Description>{decodeHtml(story.text).replace(/<\/?[^>]+>/g, '')}</Description>}
+			<ColoredA href={story.url}>
+				<Text>Перейти к источнику</Text>
+			</ColoredA>
 
-      <Text>Комментариев: {story.descendants}</Text>
+			<Row>
+				<Author>{story.by}</Author>
+				<Text>{UnixToLocaleTime(story.time)}</Text>
+				<Score>⭐{story.score}</Score>
+			</Row>
 
-      <StyledButton onClick={() => refetch()}>
-        {isFetching ? <p>Коментарии обновляются...</p> : <p>Обновить комментарии</p>}
-      </StyledButton>
+			{story.text && (
+				<Description>
+					{decodeHtml(story.text).replace(/<\/?[^>]+>/g, "")}
+				</Description>
+			)}
 
-      {data&&data.map((comment:any)=><CommentCard key={comment.id} data={comment}/>)}
-    </>
-  );
+			<Text>Комментариев: {story.descendants}</Text>
+
+			<StyledButton onClick={() => refetch()}>
+				{isFetching ? (
+					<p>Коментарии обновляются...</p>
+				) : (
+					<p>Обновить комментарии</p>
+				)}
+			</StyledButton>
+
+			{data &&
+				data.map((comment: StoryType) => (
+					<CommentCard key={comment.id} data={comment} />
+				))}
+		</>
+	);
 };

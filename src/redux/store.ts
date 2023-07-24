@@ -4,11 +4,12 @@ import thunk from "redux-thunk";
 import { newsReducer } from "./reducers/newsReducer";
 
 const rootReducer = combineReducers({
-  news: newsReducer,
+	news: newsReducer,
 });
-export type rootReducerType=ReturnType<typeof rootReducer>;
 
 export const store = createStore(
-  rootReducer,
-  composeWithDevTools(applyMiddleware(thunk))
+	rootReducer,
+	composeWithDevTools(applyMiddleware(thunk))
 );
+
+export type RootState = ReturnType<typeof store.getState>;

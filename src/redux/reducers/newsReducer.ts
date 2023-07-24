@@ -1,22 +1,26 @@
-import { ActionTypes, SET_ALL_STORIES, StoryType } from "../../utils/const";
+import { ActionTypes, SET_ALL_STORIES } from "../../utils/const/actionConst";
+import { ArrayStoryType } from "../../utils/const/storyConst";
 
-type stateTypes = {
-  data: Array<StoryType>;
+type stateType = {
+	data: ArrayStoryType;
 };
 
-const defaultState: stateTypes = {
-  data: [],
+const defaultState: stateType = {
+	data: [],
 };
 
-export const newsReducer = (state = defaultState, action: ActionTypes) => {
-  switch (action.type) {
-    case SET_ALL_STORIES:
-      return {
-        ...state,
-        data: action.payload,
-      };
+export const newsReducer = (
+	state = defaultState,
+	action: ActionTypes
+): stateType => {
+	switch (action.type) {
+		case SET_ALL_STORIES:
+			return {
+				...state,
+				data: action.payload,
+			};
 
-    default:
-      return state;
-  }
+		default:
+			return state;
+	}
 };

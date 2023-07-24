@@ -4,11 +4,10 @@ import { DefaultPageWrapper } from "../styledComponents/PageWrappers";
 import { Title } from "../styledComponents/Text";
 
 export const MainPage = () => {
-  return (
-    <DefaultPageWrapper>
-      <Title>Страница свежих новостей</Title>
-      <StoriesList />
-    </DefaultPageWrapper>
-  );
+	return (
+		<DefaultPageWrapper>
+			<Title>Страница свежих новостей</Title>
+			<StoriesList />
+		</DefaultPageWrapper>
+	);
 };
-
