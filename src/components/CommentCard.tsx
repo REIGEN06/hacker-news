@@ -28,9 +28,7 @@ const CommentCard = (story: StoryTypeObject) => {
 					<Text>{UnixToLocaleTime(comment.time)}</Text>
 				</Row>
 
-				<BoldText>
-					{decodeHtml(comment.text).replace(/<\/?[^>]+>/g, '')}
-				</BoldText>
+				<Text>{decodeHtml(comment.text).replace(/<\/?[^>]+>/g, '')}</Text>
 
 				{comment.kids?.length && (
 					<StyledButton onClick={() => setWantKids(true)}>
@@ -51,7 +49,6 @@ const CommentCard = (story: StoryTypeObject) => {
 export default CommentCard;
 
 const CommentWrapper = styled.section`
-	border: none;
 	margin: 20px;
 	display: flex;
 	width: 90%; //хз, по левому краю не получается комменты поставить
