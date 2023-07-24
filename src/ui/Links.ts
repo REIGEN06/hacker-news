@@ -14,18 +14,13 @@ export const ColoredLink = styled(Link)`
 		color: #79818c;
 	}
 `;
-export const ColoredA = styled.a`
-	font-family: Verdana, Geneva, sans-serif;
-	text-decoration: none;
-	padding: 10px;
-	color: #0078b9;
-	border-radius: 20px;
+export const ColoredLinkBlueWithoutBG = styled(ColoredLink)`
 	&:hover {
-		background-color: #f5f6f8;
-		color: blue;
+		background-color: transparent;
+		color: #2775fc;
 	}
 	&:active {
-		background-color: #e6e7eb;
+		background-color: transparent;
 		color: #79818c;
 	}
 `;

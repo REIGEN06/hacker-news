@@ -1,9 +1,7 @@
-/* eslint-disable react/no-unescaped-entities */
-/* eslint-disable react/react-in-jsx-scope */
 import { StoryType, StoryTypeObject } from '../utils/const/storyConst';
 import { Row } from '../ui/Sections';
 import { Title, Text, BoldText } from '../ui/Text';
-import { ColoredA } from '../ui/Links';
+import { ColoredLinkBlueWithoutBG } from '../ui/Links';
 import { UnixToLocaleTime, decodeHtml } from '../functions/functions';
 import CommentCard from './CommentCard';
 import { useQuery } from 'react-query';
@@ -26,9 +24,9 @@ const StoryContent = (storyData: StoryTypeObject) => {
 		<>
 			<Title>{story.title}</Title>
 
-			<ColoredA href={story.url}>
+			<ColoredLinkBlueWithoutBG to={`${story.url}`}>
 				<Text>Перейти к источнику</Text>
-			</ColoredA>
+			</ColoredLinkBlueWithoutBG>
 
 			<Row>
 				<BoldText>{story.by}</BoldText>
