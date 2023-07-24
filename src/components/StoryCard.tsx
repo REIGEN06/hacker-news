@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { StoryTypeObject } from '../utils/const/storyConst';
-import { Title, Text, BoldText } from '../styledComponents/Text';
-import { Row } from '../styledComponents/Sections';
-import { ColoredLink } from '../styledComponents/Links';
+import { Title, Text, BoldText } from '../ui/Text';
+import { Row } from '../ui/Sections';
+import { ColoredLink } from '../ui/Links';
 import { UnixToLocaleTime } from '../utils/functions';
 
 const StoryCard = (storyData: StoryTypeObject) => {

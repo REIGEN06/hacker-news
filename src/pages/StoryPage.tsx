@@ -1,9 +1,9 @@
 import StoryContent from '../components/StoryContent';
-import { Title } from '../styledComponents/Text';
+import { Title } from '../ui/Text';
 import { useLocation } from 'react-router-dom';
 import { getStoryById } from '../utils/hnApi';
 import { useQuery } from 'react-query';
-import { DefaultPageWrapper } from '../styledComponents/PageWrappers';
+import { DefaultPageWrapper } from '../ui/PageWrappers';
 
 const StoryPage = () => {
 	const location = useLocation();

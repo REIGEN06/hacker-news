@@ -1,6 +1,6 @@
-import { HomeIcon } from '../styledComponents/Icons';
+import { HomeIcon } from '../ui/Icons';
 import styled from 'styled-components';
-import { ColoredLink } from '../styledComponents/Links';
+import { ColoredLink } from '../ui/Links';
 
 const NavBar = () => {
 	return (

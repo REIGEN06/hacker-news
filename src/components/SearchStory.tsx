@@ -1,4 +1,4 @@
-import { ColoredLink } from '../styledComponents/Links';
+import { ColoredLink } from '../ui/Links';
 import { useState } from 'react';
 
 const SearchStory = () => {

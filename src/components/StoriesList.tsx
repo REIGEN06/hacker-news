@@ -5,8 +5,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useQuery } from 'react-query';
 import { ArrayStoryType, StoryType } from '../utils/const/storyConst';
 import StoryCard from './StoryCard';
-import { Title } from '../styledComponents/Text';
-import { StyledButton } from '../styledComponents/Buttons';
+import { Title } from '../ui/Text';
+import { StyledButton } from '../ui/Buttons';
 import { RootState } from '../redux/store';
 
 const StoriesList = () => {

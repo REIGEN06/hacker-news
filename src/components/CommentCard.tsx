@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { Row } from '../styledComponents/Sections';
-import { Text, BoldText } from '../styledComponents/Text';
+import { Row } from '../ui/Sections';
+import { Text, BoldText } from '../ui/Text';
 import { UnixToLocaleTime, decodeHtml } from '../utils/functions';
 import { StoryType, StoryTypeObject } from '../utils/const/storyConst';
-import { StyledButton } from '../styledComponents/Buttons';
+import { StyledButton } from '../ui/Buttons';
 import { getStoriesByIds } from '../utils/hnApi';
 import { useQuery } from 'react-query';
 import { useState } from 'react';

@@ -1,14 +1,14 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/react-in-jsx-scope */
 import { StoryType, StoryTypeObject } from '../utils/const/storyConst';
-import { Row } from '../styledComponents/Sections';
-import { Title, Text, BoldText } from '../styledComponents/Text';
-import { ColoredA } from '../styledComponents/Links';
+import { Row } from '../ui/Sections';
+import { Title, Text, BoldText } from '../ui/Text';
+import { ColoredA } from '../ui/Links';
 import { UnixToLocaleTime, decodeHtml } from '../utils/functions';
 import CommentCard from './CommentCard';
 import { useQuery } from 'react-query';
 import { getStoriesByIds } from '../utils/hnApi';
-import { StyledButton } from '../styledComponents/Buttons';
+import { StyledButton } from '../ui/Buttons';
 
 const StoryContent = (storyData: StoryTypeObject) => {
 	const story = storyData.data;

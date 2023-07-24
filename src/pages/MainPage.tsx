@@ -1,6 +1,6 @@
 import StoriesList from '../components/StoriesList';
-import { DefaultPageWrapper } from '../styledComponents/PageWrappers';
-import { Title } from '../styledComponents/Text';
+import { DefaultPageWrapper } from '../ui/PageWrappers';
+import { Title } from '../ui/Text';
 
 const MainPage = () => {
 	return (
