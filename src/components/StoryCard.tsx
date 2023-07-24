@@ -7,9 +7,8 @@ import { UnixToLocaleTime } from '../functions/functions';
 
 const StoryCard = (storyData: StoryTypeObject) => {
 	const story = storyData.data;
-	const path = `/item/${story.id}`;
 	return (
-		<NewsCardWrapperLink className="nav-link" to={path}>
+		<NewsCardWrapperLink className="nav-link" to={`/item/${story.id}`}>
 			<Title>{story.title}</Title>
 
 			<Row>

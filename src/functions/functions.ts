@@ -1,5 +1,7 @@
+import fromUnixTime from 'date-fns/fromUnixTime';
+
 export const UnixToLocaleTime = (initTime = 0) => {
-	return new Date(initTime * 1000).toLocaleTimeString('ru-RU');
+	return fromUnixTime(initTime).toLocaleTimeString('ru-RU');
 };
 
 //потенциально уязвимый код (доступ к DOM)
