@@ -4,10 +4,10 @@ import { StoryType, StoryTypeObject } from '../utils/const/storyConst';
 import { Row } from '../ui/Sections';
 import { Title, Text, BoldText } from '../ui/Text';
 import { ColoredA } from '../ui/Links';
-import { UnixToLocaleTime, decodeHtml } from '../utils/functions';
+import { UnixToLocaleTime, decodeHtml } from '../functions/functions';
 import CommentCard from './CommentCard';
 import { useQuery } from 'react-query';
-import { getStoriesByIds } from '../utils/hnApi';
+import { getStoriesByIds } from '../api/hnApi';
 import { StyledButton } from '../ui/Buttons';
 
 const StoryContent = (storyData: StoryTypeObject) => {

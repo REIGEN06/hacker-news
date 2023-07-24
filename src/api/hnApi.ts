@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { StoryType } from './const/storyConst';
+import { StoryType } from '../utils/const/storyConst';
 
 //запрашиваем ДАННЫЕ всех постов по айди
 export const getStoriesByIds = (

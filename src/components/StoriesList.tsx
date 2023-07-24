@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { setStories } from '../redux/actions/actionCreator';
-import { getStories } from '../utils/hnApi';
+import { getStories } from '../api/hnApi';
 import { useDispatch, useSelector } from 'react-redux';
 import { useQuery } from 'react-query';
 import { ArrayStoryType, StoryType } from '../utils/const/storyConst';

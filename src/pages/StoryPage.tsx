@@ -1,7 +1,7 @@
 import StoryContent from '../components/StoryContent';
 import { Title } from '../ui/Text';
 import { useLocation } from 'react-router-dom';
-import { getStoryById } from '../utils/hnApi';
+import { getStoryById } from '../api/hnApi';
 import { useQuery } from 'react-query';
 import { DefaultPageWrapper } from '../ui/PageWrappers';
 
