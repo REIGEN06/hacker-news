@@ -21,7 +21,7 @@ export const StoriesList = () => {
 	);
 
 	const news = useSelector(
-		(state: RootState): ArrayStoryType => state.news.data
+		(state: RootState): ArrayStoryType => state.news.stories
 	);
 
 	useEffect(() => {

@@ -2,11 +2,11 @@ import { ActionTypes, SET_ALL_STORIES } from "../../utils/const/actionConst";
 import { ArrayStoryType } from "../../utils/const/storyConst";
 
 type stateType = {
-	data: ArrayStoryType;
+	stories: ArrayStoryType;
 };
 
 const defaultState: stateType = {
-	data: [],
+	stories: [],
 };
 
 export const newsReducer = (
@@ -17,7 +17,7 @@ export const newsReducer = (
 		case SET_ALL_STORIES:
 			return {
 				...state,
-				data: action.payload,
+				stories: action.payload,
 			};
 
 		default:
