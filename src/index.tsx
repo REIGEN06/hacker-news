@@ -10,9 +10,9 @@ const root = createRoot(container);
 const queryClient = new QueryClient();
 
 root.render(
-  <QueryClientProvider client={queryClient}>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </QueryClientProvider>
+	<QueryClientProvider client={queryClient}>
+		<Provider store={store}>
+			<App />
+		</Provider>
+	</QueryClientProvider>
 );
