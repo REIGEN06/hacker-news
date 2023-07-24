@@ -47,8 +47,7 @@ const StoriesList = () => {
 			) : isLoading ? (
 				<Title>Посты загружаются...</Title>
 			) : (
-				news &&
-				news.map((story: StoryType) => (
+				news?.map((story: StoryType) => (
 					<StoryCard key={story.id} data={story} />
 				))
 			)}

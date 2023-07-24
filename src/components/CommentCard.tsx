@@ -38,10 +38,9 @@ const CommentCard = (story: StoryTypeObject) => {
 					</StyledButton>
 				)}
 
-				{data &&
-					data.map((kidsComment: StoryType) => (
-						<CommentCard key={kidsComment.id} data={kidsComment} />
-					))}
+				{data?.map((kidsComment: StoryType) => (
+					<CommentCard key={kidsComment.id} data={kidsComment} />
+				))}
 			</CommentWrapper>
 		);
 	} else {

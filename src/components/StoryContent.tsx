@@ -50,10 +50,9 @@ const StoryContent = (storyData: StoryTypeObject) => {
 				)}
 			</StyledButton>
 
-			{data &&
-				data.map((comment: StoryType) => (
-					<CommentCard key={comment.id} data={comment} />
-				))}
+			{data?.map((comment: StoryType) => (
+				<CommentCard key={comment.id} data={comment} />
+			))}
 		</>
 	);
 };
