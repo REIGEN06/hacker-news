@@ -11,13 +11,10 @@ import StoryCard from '@components/StoryCard';
 
 const StoriesList = () => {
 	const dispatch = useDispatch();
-	const { isLoading, isError, data, refetch, isFetching } = useQuery(
+	const { isLoading, isError, isSuccess, data, refetch, isFetching } = useQuery(
 		'stories',
 		() => getStories(),
 		{
-			onSuccess: (data) => {
-				dispatch(setStories(data));
-			},
 			refetchInterval: 60000,
 		}
 	);
@@ -25,6 +22,12 @@ const StoriesList = () => {
 	const news = useSelector(
 		(state: RootState): ArrayStoryType => state.news.stories
 	);
+
+	useEffect(() => {
+		if (isSuccess) {
+			dispatch(setStories(data));
+		}
+	}, [isSuccess]);
 
 	return (
 		<>
