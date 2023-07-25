@@ -10,6 +10,7 @@ export type StoryType = {
 	url?: string;
 	kids?: number[];
 	deleted?: boolean;
+	dead?: boolean;
 };
 export type StoryTypeObject = {
 	data: StoryType;

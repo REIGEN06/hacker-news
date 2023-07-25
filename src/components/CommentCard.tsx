@@ -19,30 +19,27 @@ const CommentCard = (story: StoryTypeObject) => {
 		}
 	);
 
-	if (!comment.deleted) {
-		return (
-			<CommentWrapper>
-				<Row>
-					<BoldText>{comment.by}</BoldText>
-					<Text>{UnixToLocaleTime(comment.time)}</Text>
-				</Row>
+	if (comment.deleted || comment.dead) return null;
+	return (
+		<CommentWrapper>
+			<Row>
+				<BoldText>{comment.by}</BoldText>
+				<Text>{UnixToLocaleTime(comment.time)}</Text>
+			</Row>
 
-				<Text>{decodeHtml(comment.text).replace(/<\/?[^>]+>/g, '')}</Text>
+			<Text>{decodeHtml(comment.text).replace(/<\/?[^>]+>/g, '')}</Text>
 
-				{comment.kids?.length && (
-					<StyledButton onClick={() => setWantKids(true)}>
-						Ответов: {comment.kids?.length}
-					</StyledButton>
-				)}
+			{comment.kids?.length && (
+				<StyledButton onClick={() => setWantKids(true)}>
+					Ответов: {comment.kids?.length}
+				</StyledButton>
+			)}
 
-				{data?.map((kidsComment: StoryType) => (
-					<CommentCard key={kidsComment.id} data={kidsComment} />
-				))}
-			</CommentWrapper>
-		);
-	} else {
-		return null;
-	}
+			{data?.map((kidsComment: StoryType) => (
+				<CommentCard key={kidsComment.id} data={kidsComment} />
+			))}
+		</CommentWrapper>
+	);
 };
 
 export default CommentCard;
