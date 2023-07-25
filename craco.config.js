@@ -8,6 +8,7 @@ module.exports = {
 			'@components': resolvePath('./src/components'),
 			'@ui': resolvePath('./src/ui'),
 			'@api': resolvePath('./src/api'),
+			'@pages': resolvePath('./src/pages'),
 			'@const': resolvePath('./src/utils/const'),
 			'@functions': resolvePath('./src/utils/functions'),
 			'@actions': resolvePath('./src/redux/actions'),

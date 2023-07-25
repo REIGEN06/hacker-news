@@ -23,6 +23,8 @@
 			"@ui/*": ["src/ui/*"],
 			"@api/": ["src/api"],
 			"@api/*": ["src/api/*"],
+			"@pages/": ["src/pages"],
+			"@pages/*": ["src/pages/*"],
 			"@const/": ["src/utils/const"],
 			"@const/*": ["src/utils/const/*"],
 			"@functions/": ["src/utils/functions"],
