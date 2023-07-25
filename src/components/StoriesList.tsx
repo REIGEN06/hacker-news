@@ -37,9 +37,9 @@ const StoriesList = () => {
 
 			{isError && <Title>ОШИБКА</Title>}
 			{isLoading && <Title>Посты загружаются...</Title>}
-			{news?.map((story: StoryType) => (
-				<StoryCard key={story.id} data={story} />
-			))}
+			{news?.map((story: StoryType) => {
+				story && <StoryCard key={story.id} data={story} />;
+			})}
 		</>
 	);
 };
