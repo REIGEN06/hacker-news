@@ -13,25 +13,18 @@ const StoriesList = () => {
 	const dispatch = useDispatch();
 	const { isLoading, isError, data, refetch, isFetching } = useQuery(
 		'stories',
-		() => getStories()
+		() => getStories(),
+		{
+			onSuccess: (data) => {
+				dispatch(setStories(data));
+			},
+			refetchInterval: 60000,
+		}
 	);
 
 	const news = useSelector(
 		(state: RootState): ArrayStoryType => state.news.stories
 	);
-
-	useEffect(() => {
-		dispatch(setStories(data));
-	}, [data]);
-
-	useEffect(() => {
-		const timerId = setInterval(() => {
-			refetch();
-		}, 60000);
-		return () => {
-			clearInterval(timerId);
-		};
-	}, []);
 
 	return (
 		<>
