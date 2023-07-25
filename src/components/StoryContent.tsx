@@ -30,9 +30,7 @@ const StoryContent = (storyData: StoryTypeObject) => {
 				<BoldText>⭐{story.score}</BoldText>
 			</Row>
 
-			{story.text && (
-				<Text>{decodeHtml(story.text).replace(/<\/?[^>]+>/g, '')}</Text>
-			)}
+			{story.text && <Text>{decodeHtml(story.text)}</Text>}
 
 			<Text>Комментариев: {story.descendants}</Text>
 

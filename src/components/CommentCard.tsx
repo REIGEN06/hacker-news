@@ -27,7 +27,7 @@ const CommentCard = (story: StoryTypeObject) => {
 				<Text>{UnixToLocaleTime(comment.time)}</Text>
 			</Row>
 
-			<Text>{decodeHtml(comment.text).replace(/<\/?[^>]+>/g, '')}</Text>
+			<Text>{decodeHtml(comment.text)}</Text>
 
 			{comment.kids?.length && (
 				<StyledButton onClick={() => setWantKids(true)}>
