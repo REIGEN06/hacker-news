@@ -1,5 +1,5 @@
-import { ActionTypes, SET_ALL_STORIES } from '../../utils/const/actionConst';
-import { ArrayStoryType } from '../../utils/const/storyConst';
+import { ActionTypes, SET_ALL_STORIES } from '@const/actionConst';
+import { ArrayStoryType } from '@const/storyConst';
 
 type stateType = {
 	stories: ArrayStoryType;

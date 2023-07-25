@@ -1,12 +1,12 @@
-import styled from 'styled-components';
-import { Row } from '../ui/Sections';
-import { Text, BoldText } from '../ui/Text';
-import { UnixToLocaleTime, decodeHtml } from '../utils/functions/functions';
-import { StoryType, StoryTypeObject } from '../utils/const/storyConst';
-import { StyledButton } from '../ui/Buttons';
-import { getStoriesByIds } from '../api/hnApi';
 import { useQuery } from 'react-query';
 import { useState } from 'react';
+import styled from 'styled-components';
+import { UnixToLocaleTime, decodeHtml } from '@functions/functions';
+import { StoryType, StoryTypeObject } from '@const/storyConst';
+import { getStoriesByIds } from '@api/hnApi';
+import { Text, BoldText } from '@ui/Text';
+import { StyledButton } from '@ui/Buttons';
+import { Row } from '@ui/Sections';
 
 const CommentCard = (story: StoryTypeObject) => {
 	const comment = story.data;

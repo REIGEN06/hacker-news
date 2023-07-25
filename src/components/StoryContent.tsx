@@ -1,12 +1,12 @@
-import { StoryType, StoryTypeObject } from '../utils/const/storyConst';
-import { Row } from '../ui/Sections';
-import { Title, Text, BoldText } from '../ui/Text';
-import { ColoredLinkBlueWithoutBG } from '../ui/Links';
-import { UnixToLocaleTime, decodeHtml } from '../utils/functions/functions';
-import CommentCard from './CommentCard';
 import { useQuery } from 'react-query';
-import { getStoriesByIds } from '../api/hnApi';
-import { StyledButton } from '../ui/Buttons';
+import { UnixToLocaleTime, decodeHtml } from '@functions/functions';
+import { StoryType, StoryTypeObject } from '@const/storyConst';
+import { ColoredLinkBlueWithoutBG } from '@ui/Links';
+import { Title, Text, BoldText } from '@ui/Text';
+import { StyledButton } from '@ui/Buttons';
+import { Row } from '@ui/Sections';
+import CommentCard from '@components/CommentCard';
+import { getStoriesByIds } from '@api/hnApi';
 
 const StoryContent = (storyData: StoryTypeObject) => {
 	const story = storyData.data;

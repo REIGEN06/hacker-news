@@ -1,5 +1,5 @@
 import { Action } from '@reduxjs/toolkit';
-import { StoryType } from './storyConst';
+import { StoryType } from '@const/storyConst';
 
 export const SET_ALL_STORIES = 'SET_ALL_STORIES';
 

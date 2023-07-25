@@ -1,5 +1,5 @@
-import { ColoredLink } from '../ui/Links';
 import { useState } from 'react';
+import { ColoredLink } from '@ui/Links';
 
 const SearchStory = () => {
 	const [input, setInput] = useState('36823605');
