@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
 
 import StoryContent from '@components/StoryContent';
@@ -7,11 +7,10 @@ import { Title } from '@ui/Text';
 import { getStoryById } from '@api/hnApi';
 
 const StoryPage = () => {
-	const location = useLocation();
-	const path = location.pathname.split('/');
-	const id = +path[path.length - 1];
+	const urlParams = useParams();
+	const StoryId = urlParams.id || 0;
 	const { isLoading, isError, data } = useQuery('story', () =>
-		getStoryById(id)
+		getStoryById(+StoryId)
 	);
 
 	return (
