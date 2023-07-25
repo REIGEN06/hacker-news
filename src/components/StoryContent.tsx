@@ -31,7 +31,7 @@ const StoryContent = (storyData: StoryTypeObject) => {
 			</Row>
 
 			{story.text && (
-				<BoldText>{decodeHtml(story.text).replace(/<\/?[^>]+>/g, '')}</BoldText>
+				<Text>{decodeHtml(story.text).replace(/<\/?[^>]+>/g, '')}</Text>
 			)}
 
 			<Text>Комментариев: {story.descendants}</Text>
