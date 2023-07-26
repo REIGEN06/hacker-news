@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-export const StyledButton = styled.button`
+export const StyledButton = styled.button<{ $padding: string }>`
 	border: ${(props) => `1px solid ${props.theme.borders.gray}`};
 	background: ${(props) => props.theme.BGcolors.white};
 	cursor: pointer;
 	border-radius: 20px;
 	margin: 5px;
-	padding: 5px;
+	padding: ${(props) => props?.$padding || '5px'};
 	&:hover {
 		background-color: ${(props) => props.theme.BGcolors.hover};
 		color: ${(props) => props.theme.colors.hover};
