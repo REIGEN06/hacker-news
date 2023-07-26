@@ -2,7 +2,7 @@ import { useQuery } from 'react-query';
 import { UnixToLocaleTime, decodeHtml } from '@functions/functions';
 import { StoryType, StoryTypeObject } from '@const/storyConst';
 import { ColoredLinkBlueWithoutBG } from '@ui/Links';
-import { Title, Text, BoldText } from '@ui/Text';
+import { Title, Text } from '@ui/Text';
 import { StyledButton } from '@ui/Buttons';
 import { Row } from '@ui/Sections';
 import CommentCard from '@components/CommentCard';
@@ -25,9 +25,9 @@ const StoryContent = (storyData: StoryTypeObject) => {
 			</ColoredLinkBlueWithoutBG>
 
 			<Row>
-				<BoldText>{story.by}</BoldText>
+				<Text isBold>{story.by}</Text>
 				<Text>{UnixToLocaleTime(story.time)}</Text>
-				<BoldText>⭐{story.score}</BoldText>
+				<Text isBold>⭐{story.score}</Text>
 			</Row>
 
 			{story.text && <Text>{decodeHtml(story.text)}</Text>}

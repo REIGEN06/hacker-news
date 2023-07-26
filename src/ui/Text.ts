@@ -1,19 +1,15 @@
 import styled from 'styled-components';
 
-export const Title = styled.h2`
-	font-family: Verdana, Geneva, sans-serif;
-	font-weight: 300;
+export const Title = styled.h2<{ isBold: boolean }>`
+	font-family: ${(props) => props.theme.fonts.sans};
+	font-weight: ${({ isBold, theme: { fontWeights } }) =>
+		isBold ? fontWeights.bold : fontWeights.normal};
 	margin: 5px;
-`;
-export const BoldTitle = styled(Title)`
-	font-weight: 700;
 `;
 
-export const Text = styled.p`
-	font-family: Verdana, Geneva, sans-serif;
-	font-weight: 300;
+export const Text = styled.p<{ isBold: boolean }>`
+	font-family: ${(props) => props.theme.fonts.sans};
+	font-weight: ${({ isBold, theme: { fontWeights } }) =>
+		isBold ? fontWeights.bold : fontWeights.normal};
 	margin: 5px;
-`;
-export const BoldText = styled(Text)`
-	font-weight: 700;
 `;

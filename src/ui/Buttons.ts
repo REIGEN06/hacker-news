@@ -1,17 +1,18 @@
 import styled from 'styled-components';
 
 export const StyledButton = styled.button`
-	border: 1px solid #dce1e6;
-	background: #ffffff;
-	border-radius: 20px;
+	border: ${(props) => `1px solid ${props.theme.borders.gray}`};
+	background: ${(props) => props.theme.BGcolors.white};
 	cursor: pointer;
+	border-radius: 20px;
 	margin: 5px;
 	padding: 5px;
 	&:hover {
-		background-color: #f5f6f8;
+		background-color: ${(props) => props.theme.BGcolors.hover};
+		color: ${(props) => props.theme.colors.hover};
 	}
 	&:active {
-		background-color: #e6e7eb;
-		color: #79818c;
+		background-color: ${(props) => props.theme.BGcolors.active};
+		color: ${(props) => props.theme.colors.active};
 	}
 `;

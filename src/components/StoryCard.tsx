@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { UnixToLocaleTime } from '@functions/functions';
 import { StoryTypeObject } from '@const/storyConst';
-import { Title, Text, BoldText } from '@ui/Text';
+import { Title, Text } from '@ui/Text';
 import { ColoredLink } from '@ui/Links';
 import { Row } from '@ui/Sections';
 
@@ -12,9 +12,9 @@ const StoryCard = (storyData: StoryTypeObject) => {
 			<Title>{story.title}</Title>
 
 			<Row>
-				<BoldText>{story.by}</BoldText>
+				<Text isBold>{story.by}</Text>
 				<Text>{UnixToLocaleTime(story.time)}</Text>
-				<BoldText>⭐{story.score}</BoldText>
+				<Text isBold>⭐{story.score}</Text>
 			</Row>
 
 			<Text>Комментариев: {story.descendants}</Text>

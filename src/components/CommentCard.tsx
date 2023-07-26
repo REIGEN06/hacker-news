@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { UnixToLocaleTime, decodeHtml } from '@functions/functions';
 import { StoryType, StoryTypeObject } from '@const/storyConst';
 import { getStoriesByIds } from '@api/hnApi';
-import { Text, BoldText } from '@ui/Text';
+import { Text } from '@ui/Text';
 import { StyledButton } from '@ui/Buttons';
 import { Row } from '@ui/Sections';
 
@@ -23,7 +23,7 @@ const CommentCard = (story: StoryTypeObject) => {
 	return (
 		<CommentWrapper>
 			<Row>
-				<BoldText>{comment.by}</BoldText>
+				<Text isBold>{comment.by}</Text>
 				<Text>{UnixToLocaleTime(comment.time)}</Text>
 			</Row>
 
