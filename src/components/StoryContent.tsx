@@ -23,9 +23,11 @@ const StoryContent = (storyData: StoryTypeObject) => {
 			<StoryContentWrapper>
 				<Title>{story.title}</Title>
 
-				<StyledLinkBlueWithoutBG to={`${story.url}`}>
-					<Text>Перейти к источнику</Text>
-				</StyledLinkBlueWithoutBG>
+				{story.type !== 'comment' && (
+					<StyledLinkBlueWithoutBG to={`${story.url}`}>
+						<Text>Перейти к источнику</Text>
+					</StyledLinkBlueWithoutBG>
+				)}
 
 				<Row>
 					<Text $isBold>{story.by}</Text>
@@ -35,8 +37,12 @@ const StoryContent = (storyData: StoryTypeObject) => {
 
 				{story.text && <Text>{decodeHtml(story.text)}</Text>}
 			</StoryContentWrapper>
+
 			<CommentsCountWrapper>
-				<Text>Комментариев: {story.descendants}</Text>
+				<Text>
+					Комментариев:{' '}
+					{story.descendants ? story.descendants : story.kids?.length || 0}
+				</Text>
 
 				<StyledButton onClick={() => refetch()}>
 					{isFetching ? (
@@ -46,6 +52,7 @@ const StoryContent = (storyData: StoryTypeObject) => {
 					)}
 				</StyledButton>
 			</CommentsCountWrapper>
+
 			{data?.map((comment: StoryType) => (
 				<CommentCard key={comment.id} data={comment} />
 			))}

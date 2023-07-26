@@ -7,6 +7,7 @@ import { getStoriesByIds } from '@api/hnApi';
 import { Text } from '@ui/Text';
 import { StyledButton } from '@ui/Buttons';
 import { Row } from '@ui/Sections';
+import { StyledLink } from '@ui/Links';
 
 const CommentCard = (story: StoryTypeObject) => {
 	const comment = story.data;
@@ -25,6 +26,9 @@ const CommentCard = (story: StoryTypeObject) => {
 			<Row>
 				<Text $isBold>{comment.by}</Text>
 				<Text>{UnixToLocaleTime(comment.time)}</Text>
+				<ResponseLink to={`/item/${comment.id}`}>
+					ответов: {comment.kids ? comment.kids?.length : 0}
+				</ResponseLink>
 			</Row>
 
 			<Text>{decodeHtml(comment.text)}</Text>
@@ -64,4 +68,10 @@ const CommentWrapper = styled.section`
 	border-radius: 10px;
 	padding: 5px 10px;
 	background: ${(props) => props.theme.BGcolors.white};
+`;
+
+const ResponseLink = styled(StyledLink)`
+	&:hover {
+		background-color: transparent;
+	}
 `;
