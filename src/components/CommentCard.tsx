@@ -30,9 +30,16 @@ const CommentCard = (story: StoryTypeObject) => {
 			<Text>{decodeHtml(comment.text)}</Text>
 
 			{comment.kids?.length && (
-				<StyledButton onClick={() => setWantKids(!wantKids)}>
-					Ответов: {comment.kids?.length}
-				</StyledButton>
+				<ResponseButton
+					active={wantKids}
+					onClick={() => setWantKids(!wantKids)}
+				>
+					{!wantKids ? (
+						<Text>Показать комментарии: {comment.kids?.length}</Text>
+					) : (
+						<Text>Скрыть комментарии</Text>
+					)}
+				</ResponseButton>
 			)}
 
 			{wantKids &&
@@ -45,8 +52,13 @@ const CommentCard = (story: StoryTypeObject) => {
 
 export default CommentCard;
 
+const ResponseButton = styled(StyledButton)`
+	background: ${({ active }) =>
+		active ? (props) => props.theme.BGcolors.active : ''};
+`;
+
 const CommentWrapper = styled.section`
-	margin: 20px;
+	margin: 5px 20px;
 	display: flex;
 	flex-direction: column;
 	border-radius: 10px;
