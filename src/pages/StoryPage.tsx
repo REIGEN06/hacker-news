@@ -1,6 +1,5 @@
 import { useParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
-
 import StoryContent from '@components/StoryContent';
 import { DefaultPageWrapper } from '@ui/PageWrappers';
 import { Title } from '@ui/Text';

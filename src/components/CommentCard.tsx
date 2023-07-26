@@ -47,7 +47,6 @@ export default CommentCard;
 const CommentWrapper = styled.section`
 	margin: 20px;
 	display: flex;
-	width: 90%; //хз, по левому краю не получается комменты поставить
 	flex-direction: column;
 	border-radius: 10px;
 	padding: 5px 10px;
