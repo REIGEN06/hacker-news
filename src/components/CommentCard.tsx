@@ -31,7 +31,7 @@ const CommentCard = (story: StoryTypeObject) => {
 
 			{comment.kids?.length && (
 				<ResponseButton
-					active={wantKids}
+					$active={wantKids}
 					onClick={() => setWantKids(!wantKids)}
 				>
 					{!wantKids ? (
@@ -53,8 +53,8 @@ const CommentCard = (story: StoryTypeObject) => {
 export default CommentCard;
 
 const ResponseButton = styled(StyledButton)`
-	background: ${({ active }) =>
-		active ? (props) => props.theme.BGcolors.active : ''};
+	background: ${({ $active }) =>
+		$active ? (props) => props.theme.BGcolors.active : ''};
 `;
 
 const CommentWrapper = styled.section`
