@@ -17,16 +17,27 @@ const StoryContent = (storyData: StoryTypeObject) => {
 	const commentsIds = story.kids;
 
 	const navigate = useNavigate();
+
 	const { data, refetch, isFetching } = useQuery('comment', () =>
 		getStoriesByIds(commentsIds)
 	);
+
+	const prevPage = window.location.href;
+	const goBack = () => {
+		navigate(-1);
+		setTimeout(function () {
+			if (window.location.href === prevPage) {
+				navigate('/');
+			}
+		}, 500);
+	};
 
 	return (
 		<>
 			<StyledButton
 				$padding="5px 50px"
 				$margin="15px 20px 0px"
-				onClick={() => navigate(-1)}
+				onClick={() => goBack()}
 			>
 				<BackIcon />
 			</StyledButton>
