@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { UnixToLocaleTime } from '@functions/functions';
 import { StoryTypeObject } from '@const/storyConst';
 import { Title, Text } from '@ui/Text';
-import { ColoredLink } from '@ui/Links';
+import { StyledLink } from '@ui/Links';
 import { Row } from '@ui/Sections';
 
 const StoryCard = (storyData: StoryTypeObject) => {
@@ -24,7 +24,7 @@ const StoryCard = (storyData: StoryTypeObject) => {
 
 export default StoryCard;
 
-const NewsCardWrapperLink = styled(ColoredLink)`
+const NewsCardWrapperLink = styled(StyledLink)`
 	border: ${(props) => `1px solid ${props.theme.borders.gray}`};
 	border-width: 1px 0px;
 	padding: 5px 10px;

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ColoredLinkBlueWithoutBG } from '@ui/Links';
+import { StyledLinkBlueWithoutBG } from '@ui/Links';
 import { GITHUB_SOURCE_PATH } from '@const/routerConst';
 import { Text } from '@ui/Text';
 
@@ -25,6 +25,6 @@ const FooterWrapper = styled.section`
 	background-color: ${(props) => props.theme.BGcolors.white};
 `;
 
-const FooterLink = styled(ColoredLinkBlueWithoutBG)`
+const FooterLink = styled(StyledLinkBlueWithoutBG)`
 	padding: 10px;
 `;

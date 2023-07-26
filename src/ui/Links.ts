@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-export const ColoredLink = styled(Link)`
+export const StyledLink = styled(Link)`
 	text-decoration: none;
 	font-family: ${(props) => props.theme.fonts.sans};
 	color: ${(props) => props.theme.colors.idle};
@@ -14,7 +14,7 @@ export const ColoredLink = styled(Link)`
 		color: ${(props) => props.theme.colors.active};
 	}
 `;
-export const ColoredLinkBlueWithoutBG = styled(ColoredLink)`
+export const StyledLinkBlueWithoutBG = styled(StyledLink)`
 	color: ${(props) => props.theme.colors.idleBlue};
 	&:hover {
 		background-color: transparent;

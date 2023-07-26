@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { useQuery } from 'react-query';
 import { UnixToLocaleTime, decodeHtml } from '@functions/functions';
 import { StoryType, StoryTypeObject } from '@const/storyConst';
-import { ColoredLinkBlueWithoutBG } from '@ui/Links';
+import { StyledLinkBlueWithoutBG } from '@ui/Links';
 import { Title, Text } from '@ui/Text';
 import { StyledButton } from '@ui/Buttons';
 import { Row } from '@ui/Sections';
@@ -23,9 +23,9 @@ const StoryContent = (storyData: StoryTypeObject) => {
 			<StoryContentWrapper>
 				<Title>{story.title}</Title>
 
-				<ColoredLinkBlueWithoutBG to={`${story.url}`}>
+				<StyledLinkBlueWithoutBG to={`${story.url}`}>
 					<Text>Перейти к источнику</Text>
-				</ColoredLinkBlueWithoutBG>
+				</StyledLinkBlueWithoutBG>
 
 				<Row>
 					<Text $isBold>{story.by}</Text>

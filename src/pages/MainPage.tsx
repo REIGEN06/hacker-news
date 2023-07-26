@@ -14,7 +14,7 @@ const MainPage = () => {
 
 export default MainPage;
 
-export const MainPageWrapper = styled(DefaultPageWrapper)`
+const MainPageWrapper = styled(DefaultPageWrapper)`
 	border: ${(props) => `1px solid ${props.theme.borders.gray}`};
 	border-radius: 10px;
 	display: flex;
