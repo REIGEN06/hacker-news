@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { StyledLink } from '@ui/Links';
 import { ReactComponent as HomeIcon } from '@ui/icons/homeIcon.svg';
+import SearchStory from './SearchStory';
 
 const NavBar = () => {
 	return (
@@ -8,6 +9,7 @@ const NavBar = () => {
 			<NavbarLink className="nav-link" to="/">
 				<HomeIcon />
 			</NavbarLink>
+			<SearchStory />
 		</NavBarWrapper>
 	);
 };
