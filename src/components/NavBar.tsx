@@ -18,8 +18,8 @@ const NavBarWrapper = styled.section`
 	align-items: center;
 	justify-content: center;
 	display: flex;
-	background-color: #ffffff;
-	box-shadow: 0px 1px #dce1e6;
+	background-color: ${(props) => props.theme.BGcolors.white};
+	box-shadow: 0px 2px ${(props) => `${props.theme.borders.gray}`};
 	position: sticky;
 `;
 

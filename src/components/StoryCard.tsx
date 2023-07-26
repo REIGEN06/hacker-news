@@ -25,7 +25,7 @@ const StoryCard = (storyData: StoryTypeObject) => {
 export default StoryCard;
 
 const NewsCardWrapperLink = styled(ColoredLink)`
-	border: solid #dce1e6;
+	border: ${(props) => `1px solid ${props.theme.borders.gray}`};
 	border-width: 1px 0px;
 	padding: 5px 10px;
 	width: 100%;

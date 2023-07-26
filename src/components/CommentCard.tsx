@@ -51,5 +51,5 @@ const CommentWrapper = styled.section`
 	flex-direction: column;
 	border-radius: 10px;
 	padding: 5px 10px;
-	background: #ffffff;
+	background: ${(props) => props.theme.BGcolors.white};
 `;
