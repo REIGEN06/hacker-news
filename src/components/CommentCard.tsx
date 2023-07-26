@@ -30,14 +30,15 @@ const CommentCard = (story: StoryTypeObject) => {
 			<Text>{decodeHtml(comment.text)}</Text>
 
 			{comment.kids?.length && (
-				<StyledButton onClick={() => setWantKids(true)}>
+				<StyledButton onClick={() => setWantKids(!wantKids)}>
 					Ответов: {comment.kids?.length}
 				</StyledButton>
 			)}
 
-			{data?.map((kidsComment: StoryType) => (
-				<CommentCard key={kidsComment.id} data={kidsComment} />
-			))}
+			{wantKids &&
+				data?.map((kidsComment: StoryType) => (
+					<CommentCard key={kidsComment.id} data={kidsComment} />
+				))}
 		</CommentWrapper>
 	);
 };
