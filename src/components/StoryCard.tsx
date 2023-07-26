@@ -12,9 +12,9 @@ const StoryCard = (storyData: StoryTypeObject) => {
 			<Title>{story.title}</Title>
 
 			<Row>
-				<Text isBold>{story.by}</Text>
+				<Text $isBold>{story.by}</Text>
 				<Text>{UnixToLocaleTime(story.time)}</Text>
-				<Text isBold>⭐{story.score}</Text>
+				<Text $isBold>⭐{story.score}</Text>
 			</Row>
 
 			<Text>Комментариев: {story.descendants}</Text>

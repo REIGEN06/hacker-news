@@ -23,7 +23,7 @@ const CommentCard = (story: StoryTypeObject) => {
 	return (
 		<CommentWrapper>
 			<Row>
-				<Text isBold>{comment.by}</Text>
+				<Text $isBold>{comment.by}</Text>
 				<Text>{UnixToLocaleTime(comment.time)}</Text>
 			</Row>
 

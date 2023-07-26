@@ -25,9 +25,9 @@ const StoryContent = (storyData: StoryTypeObject) => {
 			</ColoredLinkBlueWithoutBG>
 
 			<Row>
-				<Text isBold>{story.by}</Text>
+				<Text $isBold>{story.by}</Text>
 				<Text>{UnixToLocaleTime(story.time)}</Text>
-				<Text isBold>⭐{story.score}</Text>
+				<Text $isBold>⭐{story.score}</Text>
 			</Row>
 
 			{story.text && <Text>{decodeHtml(story.text)}</Text>}
