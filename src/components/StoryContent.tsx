@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import { UnixToLocaleTime, decodeHtml } from '@functions/functions';
 import { StoryType, StoryTypeObject } from '@const/storyConst';
@@ -6,20 +7,30 @@ import { StyledLinkBlueWithoutBG } from '@ui/Links';
 import { Title, Text } from '@ui/Text';
 import { StyledButton } from '@ui/Buttons';
 import { Row } from '@ui/Sections';
+import { DefaultPageWrapper } from '@ui/PageWrappers';
+import { ReactComponent as BackIcon } from '@ui/icons/backIcon.svg';
 import CommentCard from '@components/CommentCard';
 import { getStoriesByIds } from '@api/hnApi';
-import { DefaultPageWrapper } from '@ui/PageWrappers';
 
 const StoryContent = (storyData: StoryTypeObject) => {
 	const story = storyData.data;
 	const commentsIds = story.kids;
 
+	const navigate = useNavigate();
 	const { data, refetch, isFetching } = useQuery('comment', () =>
 		getStoriesByIds(commentsIds)
 	);
 
 	return (
 		<>
+			<StyledButton
+				$padding="5px 50px"
+				$margin="15px 20px 0px"
+				onClick={() => navigate(-1)}
+			>
+				<BackIcon />
+			</StyledButton>
+
 			<StoryContentWrapper>
 				<Title>{story.title}</Title>
 
