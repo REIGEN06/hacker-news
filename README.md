@@ -11,7 +11,7 @@
 Так же используются:
 
 - [официальный API Hacker News](https://github.com/HackerNews/API)
-- Роутинг выполнен с использованием [React Router v5](https://github.com/ReactTraining/react-router/releases/tag/v5.0.0)
+- Роутинг выполнен с использованием [React Router v6](https://github.com/remix-run/react-router/releases/tag/react-router%406.14.2)
 - Фреймворк UI: `styled-components`
 - Пакетный менеджер: `npm`
 - После запуска приложения все переходы по ссылкам не перезагружают страницу
