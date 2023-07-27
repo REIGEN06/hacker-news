@@ -35,7 +35,9 @@ const SearchWrapper = styled.section`
 `;
 
 const StyledInput = styled.input`
-	background: ${(props) => props.theme.BGcolors.white};
+	background: ${(props) => props.theme.BGcolors.gray};
+	border-radius: 50px;
+	padding: 10px;
 	display: flex;
 	align-items: center;
 	gap: 5px;
