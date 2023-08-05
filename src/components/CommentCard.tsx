@@ -1,7 +1,7 @@
 import { useQuery } from 'react-query';
 import { useState } from 'react';
 import styled from 'styled-components';
-import { UnixToLocaleTime, decodeHtml } from '@functions/functions';
+import { UnixToLocaleTime } from '@functions/functions';
 import { StoryType, StoryTypeProps } from '@const/storyConst';
 import { getStoriesByIds } from '@api/hnApi';
 import { Text } from '@ui/Text';
@@ -31,7 +31,7 @@ const CommentCard = (story: StoryTypeProps) => {
 				</ResponseLink>
 			</Row>
 
-			<Text>{decodeHtml(comment.text)}</Text>
+			<Text dangerouslySetInnerHTML={{ __html: `${comment.text}` }} />
 
 			{comment.kids?.length && (
 				<ResponseButton

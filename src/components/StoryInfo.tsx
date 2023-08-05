@@ -1,5 +1,5 @@
 import { StoryType } from '@const/storyConst';
-import { UnixToLocaleTime, decodeHtml } from '@functions/functions';
+import { UnixToLocaleTime } from '@functions/functions';
 import { StyledLinkBlueWithoutBG } from '@ui/Links';
 import { Row } from '@ui/Sections';
 import { Title, Text } from '@ui/Text';
@@ -24,7 +24,9 @@ export const StoryInfo = (props: StoryInfoType) => {
 				<Text>{UnixToLocaleTime(story.time)}</Text>
 				<Text isBold>⭐{story.score}</Text>
 			</Row>
-			{props.text && story.text && <Text>{decodeHtml(story.text)}</Text>}
+			{props.text && story.text && (
+				<Text dangerouslySetInnerHTML={{ __html: `${story.text}` }} />
+			)}
 		</>
 	);
 };
