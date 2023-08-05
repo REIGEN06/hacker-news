@@ -34,15 +34,25 @@ const MainPage = () => {
 		}
 	}, [stories.isSuccess]);
 
+	const debounce = (fn: Function, ms = 300) => {
+		let timeoutId: ReturnType<typeof setTimeout>;
+		return function (this: any, ...args: any[]) {
+			clearTimeout(timeoutId);
+			timeoutId = setTimeout(() => fn.apply(this, args), ms);
+		};
+	};
+
 	return (
 		<MainPageWrapper>
 			<Title>Страница новостей</Title>
 			<Row>
 				<StyledInput
 					placeholder="Введите название поста"
-					onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-						setInput(event.target.value)
-					}
+					onChange={debounce(
+						(event: React.ChangeEvent<HTMLInputElement>) =>
+							setInput(event.target.value),
+						300
+					)}
 				/>
 				<StyledButton padding="0px 5px" onClick={stories.refetch}>
 					{stories.isFetching ? (
