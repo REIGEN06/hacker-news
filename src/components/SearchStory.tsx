@@ -3,7 +3,7 @@ import { StyledLink } from '@ui/Links';
 import { ReactComponent as SearchIcon } from '@ui/icons/searchIcon.svg';
 import styled from 'styled-components';
 const SearchStory = () => {
-	const [input, setInput] = useState('36823605');
+	const [input, setInput] = useState('');
 	return (
 		<SearchWrapper>
 			<StyledInput
@@ -14,7 +14,7 @@ const SearchStory = () => {
 					setInput(event.target.value)
 				}
 			/>
-			<NavbarLink className="nav-link" to={`/item/${input}`}>
+			<NavbarLink className="nav-link" to={input && `/item/${input}`}>
 				<SearchIcon />
 			</NavbarLink>
 		</SearchWrapper>

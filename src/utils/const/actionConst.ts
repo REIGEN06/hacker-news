@@ -4,7 +4,7 @@ import { StoryType } from '@const/storyConst';
 export const SET_ALL_STORIES = 'SET_ALL_STORIES';
 
 export interface SetStoriesAction extends Action {
-	type: 'SET_ALL_STORIES'; //не могу присвоить SET_ALL_STORIES как значение для type
+	type: typeof SET_ALL_STORIES;
 	payload?: StoryType[];
 }
 

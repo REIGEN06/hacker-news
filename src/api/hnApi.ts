@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { StoryType } from '../utils/const/storyConst';
-import { HN_BASE_PATH } from '../utils/const/routerConst';
+import { HN_BASE_PATH } from '../utils/const/apiConst';
 
 //запрашиваем ДАННЫЕ всех постов по айди
 export const getStoriesByIds = (

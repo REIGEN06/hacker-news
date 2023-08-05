@@ -16,7 +16,6 @@ const newsReducer = (state = defaultState, action: ActionTypes): stateType => {
 				...state,
 				stories: action.payload,
 			};
-
 		default:
 			return state;
 	}

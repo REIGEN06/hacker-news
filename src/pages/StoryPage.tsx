@@ -7,10 +7,8 @@ import { getStoryById } from '@api/hnApi';
 
 const StoryPage = () => {
 	const urlParams = useParams();
-	const StoryId = urlParams.id || 0;
-	const { isLoading, data } = useQuery(StoryId.toString(), () =>
-		getStoryById(+StoryId)
-	);
+	const StoryId = urlParams.id || '0';
+	const { isLoading, data } = useQuery(StoryId, () => getStoryById(+StoryId));
 
 	return (
 		<DefaultPageWrapper>
@@ -19,7 +17,7 @@ const StoryPage = () => {
 			) : (
 				isLoading && <Title>Пост загружается...</Title>
 			)}
-			{data && <StoryContent key={data.id} data={data} />}
+			{data && <StoryContent data={data} />}
 		</DefaultPageWrapper>
 	);
 };

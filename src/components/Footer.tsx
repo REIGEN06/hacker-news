@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { StyledLinkBlueWithoutBG } from '@ui/Links';
-import { GITHUB_SOURCE_PATH } from '@const/routerConst';
+import { GITHUB_SOURCE_PATH } from '@const/apiConst';
 import { Text } from '@ui/Text';
 
 const Footer = () => {
