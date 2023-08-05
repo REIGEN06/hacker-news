@@ -18,9 +18,9 @@ const StoryContent = (storyData: StoryTypeObject) => {
 
 	const navigate = useNavigate();
 
-	const { data, refetch, isFetching } = useQuery('comment', () =>
-		getStoriesByIds(commentsIds)
-	);
+	const comments = useQuery('comments', () => getStoriesByIds(commentsIds), {
+		refetchInterval: 60000,
+	});
 
 	const prevPage = window.location.href;
 	const goBack = () => {
@@ -66,8 +66,8 @@ const StoryContent = (storyData: StoryTypeObject) => {
 					{story.descendants ? story.descendants : story.kids?.length || 0}
 				</Text>
 
-				<StyledButton onClick={() => refetch()}>
-					{isFetching ? (
+				<StyledButton onClick={() => comments.refetch()}>
+					{comments.isFetching ? (
 						<p>Коментарии обновляются...</p>
 					) : (
 						<p>Обновить комментарии</p>
@@ -75,7 +75,7 @@ const StoryContent = (storyData: StoryTypeObject) => {
 				</StyledButton>
 			</CommentsCountWrapper>
 
-			{data?.map((comment: StoryType) => (
+			{comments.data?.map((comment: StoryType) => (
 				<CommentCard key={comment.id} data={comment} />
 			))}
 		</>

@@ -15,13 +15,9 @@ const StoriesList = () => {
 	const dispatch = useDispatch();
 	const [input, setInput] = useState('');
 
-	const { isLoading, isError, isSuccess, data, refetch, isFetching } = useQuery(
-		'stories',
-		() => getStories(),
-		{
-			refetchInterval: 60000,
-		}
-	);
+	const stories = useQuery('stories', () => getStories(), {
+		refetchInterval: 60000,
+	});
 
 	const news = useSelector(
 		(state: RootState): ArrayStoryType => state.news.stories
@@ -32,10 +28,10 @@ const StoriesList = () => {
 	});
 
 	useEffect(() => {
-		if (isSuccess) {
-			dispatch(setStories(data));
+		if (stories.isSuccess) {
+			dispatch(setStories(stories.data));
 		}
-	}, [isSuccess]);
+	}, [stories.isSuccess]);
 
 	return (
 		<>
@@ -48,8 +44,8 @@ const StoriesList = () => {
 						setInput(event.target.value)
 					}
 				/>
-				<StyledButton $padding="0px 5px" onClick={() => refetch()}>
-					{isFetching ? (
+				<StyledButton $padding="0px 5px" onClick={stories.refetch}>
+					{stories.isFetching ? (
 						<p>Список обновляется...</p>
 					) : (
 						<p>Обновить список новостей</p>
@@ -57,8 +53,8 @@ const StoriesList = () => {
 				</StyledButton>
 			</Row>
 
-			{isError && <Title>ОШИБКА</Title>}
-			{isLoading && <Title>Посты загружаются...</Title>}
+			{stories.isError && <Title>ОШИБКА</Title>}
+			{stories.isLoading && <Title>Посты загружаются...</Title>}
 			{filteredNews?.map((story: StoryType) => {
 				return story ? <StoryCard key={story.id} data={story} /> : null;
 			})}

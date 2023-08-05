@@ -12,7 +12,7 @@ import { StyledLink } from '@ui/Links';
 const CommentCard = (story: StoryTypeObject) => {
 	const comment = story.data;
 	const [wantKids, setWantKids] = useState(false);
-	const { data } = useQuery(
+	const commentsKids = useQuery(
 		comment.id.toString(),
 		() => getStoriesByIds(comment.kids),
 		{
@@ -47,7 +47,7 @@ const CommentCard = (story: StoryTypeObject) => {
 			)}
 
 			{wantKids &&
-				data?.map((kidsComment: StoryType) => (
+				commentsKids.data?.map((kidsComment: StoryType) => (
 					<CommentCard key={kidsComment.id} data={kidsComment} />
 				))}
 		</CommentWrapper>
