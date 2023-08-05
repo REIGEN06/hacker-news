@@ -14,7 +14,7 @@ const CommentCard = (story: StoryTypeObject) => {
 	const [wantKids, setWantKids] = useState(false);
 	const commentsKids = useQuery(
 		comment.id.toString(),
-		() => getStoriesByIds(comment.kids),
+		() => getStoriesByIds(comment.kids || []),
 		{
 			enabled: wantKids,
 		}

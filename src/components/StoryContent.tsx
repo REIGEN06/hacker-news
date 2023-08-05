@@ -18,9 +18,13 @@ const StoryContent = (storyData: StoryTypeObject) => {
 
 	const navigate = useNavigate();
 
-	const comments = useQuery('comments', () => getStoriesByIds(commentsIds), {
-		refetchInterval: 60000,
-	});
+	const comments = useQuery(
+		'comments',
+		() => getStoriesByIds(commentsIds || []),
+		{
+			refetchInterval: 60000,
+		}
+	);
 
 	const prevPage = window.location.href;
 	const goBack = () => {

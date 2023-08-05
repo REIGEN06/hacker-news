@@ -4,10 +4,9 @@ import { HN_BASE_PATH } from '../utils/const/apiConst';
 
 //запрашиваем ДАННЫЕ всех постов по айди
 export const getStoriesByIds = (
-	ids: number[] | undefined
+	ids: number[]
 ): Promise<StoryType[]> | undefined => {
-	if (ids !== undefined)
-		return Promise.all(ids.map((id: number) => getStoryById(id)));
+	if (ids) return Promise.all(ids.map((id: number) => getStoryById(id)));
 };
 
 //запрашиваем ДАННЫЕ всех НОВЫХ постов
