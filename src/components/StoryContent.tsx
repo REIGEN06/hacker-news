@@ -39,8 +39,8 @@ const StoryContent = (storyData: StoryTypeObject) => {
 	return (
 		<>
 			<StyledButton
-				$padding="5px 50px"
-				$margin="15px 20px 0px"
+				padding="5px 50px"
+				margin="15px 20px 0px"
 				onClick={() => goBack()}
 			>
 				<BackIcon />
@@ -56,9 +56,9 @@ const StoryContent = (storyData: StoryTypeObject) => {
 				)}
 
 				<Row>
-					<Text $isBold>{story.by}</Text>
+					<Text isBold>{story.by}</Text>
 					<Text>{UnixToLocaleTime(story.time)}</Text>
-					<Text $isBold>⭐{story.score}</Text>
+					<Text isBold>⭐{story.score}</Text>
 				</Row>
 
 				{story.text && <Text>{decodeHtml(story.text)}</Text>}
@@ -70,7 +70,7 @@ const StoryContent = (storyData: StoryTypeObject) => {
 					{story.descendants ? story.descendants : story.kids?.length || 0}
 				</Text>
 
-				<StyledButton onClick={() => comments.refetch()}>
+				<StyledButton onClick={comments.refetch}>
 					{comments.isFetching ? (
 						<p>Коментарии обновляются...</p>
 					) : (

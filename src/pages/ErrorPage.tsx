@@ -17,7 +17,7 @@ const ErrorPage = () => {
 				</StyledLinkBlueWithoutBG>
 			</Text>
 			<StyledLinkBlueWithoutBG to="/">
-				<StyledButton $padding="10px">Хочу новостей!</StyledButton>
+				<StyledButton padding="10px">Хочу новостей!</StyledButton>
 			</StyledLinkBlueWithoutBG>
 		</ErrorPageWrapper>
 	);

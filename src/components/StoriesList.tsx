@@ -44,7 +44,7 @@ const StoriesList = () => {
 						setInput(event.target.value)
 					}
 				/>
-				<StyledButton $padding="0px 5px" onClick={stories.refetch}>
+				<StyledButton padding="0px 5px" onClick={stories.refetch}>
 					{stories.isFetching ? (
 						<p>Список обновляется...</p>
 					) : (

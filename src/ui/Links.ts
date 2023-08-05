@@ -3,25 +3,30 @@ import { Link } from 'react-router-dom';
 
 export const StyledLink = styled(Link)`
 	text-decoration: none;
-	font-family: ${(props) => props.theme.fonts.sans};
-	color: ${(props) => props.theme.colors.idle};
+	${({ theme }) => `
+	font-family: ${theme.fonts.sans};
+	color: ${theme.colors.idle};
 	&:hover {
-		background-color: ${(props) => props.theme.BGcolors.hover};
-		color: ${(props) => props.theme.colors.hover};
+		background-color: ${theme.BGcolors.hover};
+		color: ${theme.colors.hover};
 	}
 	&:active {
-		background-color: ${(props) => props.theme.BGcolors.active};
-		color: ${(props) => props.theme.colors.active};
+		background-color: ${theme.BGcolors.active};
+		color: ${theme.colors.active};
 	}
+	`}
 `;
+
 export const StyledLinkBlueWithoutBG = styled(StyledLink)`
-	color: ${(props) => props.theme.colors.idleBlue};
+	${({ theme }) => `
+	color: ${theme.colors.idleBlue};
 	&:hover {
 		background-color: transparent;
-		color: ${(props) => props.theme.colors.hoverBlue};
+		color: ${theme.colors.hoverBlue};
 	}
 	&:active {
 		background-color: transparent;
-		color: ${(props) => props.theme.colors.active};
+		color: ${theme.colors.active};
 	}
+	`}
 `;
