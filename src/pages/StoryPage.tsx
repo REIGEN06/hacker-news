@@ -1,4 +1,4 @@
-import { Navigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import StoryContent from '@components/StoryContent';
 import { DefaultPageWrapper } from '@ui/PageWrappers';
@@ -7,16 +7,13 @@ import { getStoryById } from '@api/hnApi';
 
 const StoryPage = () => {
 	const urlParams = useParams();
+	const navigate = useNavigate();
 	const StoryId = urlParams.id || '0';
 	const Story = useQuery(StoryId, () => getStoryById(+StoryId));
-
+	isNaN(+StoryId) && navigate('/ERROR');
 	return (
 		<DefaultPageWrapper>
-			{!+StoryId ? (
-				<Navigate to="/ERROR" />
-			) : (
-				Story.isLoading && <Title>Пост загружается...</Title>
-			)}
+			{Story.isLoading && <Title>Пост загружается...</Title>}
 			{Story.data && <StoryContent data={Story.data} />}
 		</DefaultPageWrapper>
 	);
