@@ -3,11 +3,14 @@ import { UnixToLocaleTime } from '@functions/functions';
 import { StyledLinkBlueWithoutBG } from '@ui/Links';
 import { Row } from '@ui/Sections';
 import { Title, Text } from '@ui/Text';
+import { StyledLink } from '@ui/Links';
+import styled from 'styled-components';
 
 type StoryInfoType = {
 	data: StoryType;
 	source?: boolean;
 	text?: boolean;
+	comment?: boolean;
 };
 export const StoryInfo = (props: StoryInfoType) => {
 	const story = props.data;
@@ -22,7 +25,13 @@ export const StoryInfo = (props: StoryInfoType) => {
 			<Row>
 				<Text isBold>{story.by}</Text>
 				<Text>{UnixToLocaleTime(story.time)}</Text>
-				<Text isBold>⭐{story.score}</Text>
+				{props.comment ? (
+					<ResponseLink to={`/item/${story.id}`}>
+						ответов: {story.kids ? story.kids?.length : 0}
+					</ResponseLink>
+				) : (
+					<Text isBold>⭐{story.score}</Text>
+				)}
 			</Row>
 			{props.text && story.text && (
 				<Text dangerouslySetInnerHTML={{ __html: `${story.text}` }} />
@@ -30,3 +39,9 @@ export const StoryInfo = (props: StoryInfoType) => {
 		</>
 	);
 };
+
+const ResponseLink = styled(StyledLink)`
+	&:hover {
+		background-color: transparent;
+	}
+`;

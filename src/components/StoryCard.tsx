@@ -18,7 +18,10 @@ export default StoryCard;
 
 const NewsCardWrapperLink = styled(StyledLink)`
 	border: ${(props) => `1px solid ${props.theme.borders.gray}`};
+	border-radius: 10px;
 	border-width: 1px 0px;
 	padding: 5px 10px;
+	margin: 15px 20px 0px;
+
 	width: 100%;
 `;

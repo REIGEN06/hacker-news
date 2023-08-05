@@ -1,13 +1,11 @@
 import { useQuery } from 'react-query';
 import { useState } from 'react';
 import styled from 'styled-components';
-import { UnixToLocaleTime } from '@functions/functions';
 import { StoryType, StoryTypeProps } from '@const/storyConst';
 import { getStoriesByIds } from '@api/hnApi';
 import { Text } from '@ui/Text';
 import { StyledButton } from '@ui/Buttons';
-import { Row } from '@ui/Sections';
-import { StyledLink } from '@ui/Links';
+import { StoryInfo } from './StoryInfo';
 
 const CommentCard = (story: StoryTypeProps) => {
 	const comment = story.data;
@@ -23,15 +21,7 @@ const CommentCard = (story: StoryTypeProps) => {
 	if (comment.deleted || comment.dead) return null;
 	return (
 		<CommentWrapper>
-			<Row>
-				<Text isBold>{comment.by}</Text>
-				<Text>{UnixToLocaleTime(comment.time)}</Text>
-				<ResponseLink to={`/item/${comment.id}`}>
-					ответов: {comment.kids ? comment.kids?.length : 0}
-				</ResponseLink>
-			</Row>
-
-			<Text dangerouslySetInnerHTML={{ __html: `${comment.text}` }} />
+			<StoryInfo text comment data={comment} />
 
 			{comment.kids?.length && (
 				<ResponseButton
@@ -68,10 +58,4 @@ const CommentWrapper = styled.section`
 	border-radius: 10px;
 	padding: 5px 10px;
 	background: ${(props) => props.theme.BGcolors.white};
-`;
-
-const ResponseLink = styled(StyledLink)`
-	&:hover {
-		background-color: transparent;
-	}
 `;

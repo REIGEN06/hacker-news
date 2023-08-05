@@ -1,4 +1,5 @@
 import { useNavigate, useParams } from 'react-router-dom';
+import styled from 'styled-components';
 import { useQuery } from 'react-query';
 import StoryContent from '@components/StoryContent';
 import { DefaultPageWrapper } from '@ui/PageWrappers';
@@ -12,11 +13,16 @@ const StoryPage = () => {
 	const Story = useQuery(StoryId, () => getStoryById(+StoryId));
 	isNaN(+StoryId) && navigate('/ERROR');
 	return (
-		<DefaultPageWrapper>
+		<StoryContentWrapper>
 			{Story.isLoading && <Title>Пост загружается...</Title>}
 			{Story.data && <StoryContent data={Story.data} />}
-		</DefaultPageWrapper>
+		</StoryContentWrapper>
 	);
 };
 
 export default StoryPage;
+
+const StoryContentWrapper = styled(DefaultPageWrapper)`
+	border: ${(props) => `1px solid ${props.theme.borders.gray}`};
+	border-radius: 10px;
+`;
