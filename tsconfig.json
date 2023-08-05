@@ -14,28 +14,8 @@
 		"isolatedModules": true,
 		"noEmit": true,
 		"jsx": "react-jsx",
-		"allowSyntheticDefaultImports": false,
-		"baseUrl": "./",
-		"paths": {
-			"@components/": ["src/components"],
-			"@components/*": ["src/components/*"],
-			"@ui/": ["src/ui"],
-			"@ui/*": ["src/ui/*"],
-			"@api/": ["src/api"],
-			"@api/*": ["src/api/*"],
-			"@pages/": ["src/pages"],
-			"@pages/*": ["src/pages/*"],
-			"@const/": ["src/utils/const"],
-			"@const/*": ["src/utils/const/*"],
-			"@functions/": ["src/utils/functions"],
-			"@functions/*": ["src/utils/functions/*"],
-			"@actions/": ["src/redux/actions"],
-			"@actions/*": ["src/redux/actions/*"],
-			"@reducers/": ["src/redux/reducers"],
-			"@reducers/*": ["src/redux/reducers/*"],
-			"@redux/": ["src/redux"],
-			"@redux/*": ["src/redux/*"]
-		}
+		"allowSyntheticDefaultImports": false
 	},
+	"extends": "./tsconfig.paths.json",
 	"include": ["src", "**/*.tsx"]
 }
