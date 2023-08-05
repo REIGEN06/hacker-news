@@ -2,14 +2,14 @@ import { useQuery } from 'react-query';
 import { useState } from 'react';
 import styled from 'styled-components';
 import { UnixToLocaleTime, decodeHtml } from '@functions/functions';
-import { StoryType, StoryTypeObject } from '@const/storyConst';
+import { StoryType, StoryTypeProps } from '@const/storyConst';
 import { getStoriesByIds } from '@api/hnApi';
 import { Text } from '@ui/Text';
 import { StyledButton } from '@ui/Buttons';
 import { Row } from '@ui/Sections';
 import { StyledLink } from '@ui/Links';
 
-const CommentCard = (story: StoryTypeObject) => {
+const CommentCard = (story: StoryTypeProps) => {
 	const comment = story.data;
 	const [wantKids, setWantKids] = useState(false);
 	const commentsKids = useQuery(

@@ -1,23 +1,15 @@
 import styled from 'styled-components';
-import { UnixToLocaleTime } from '@functions/functions';
-import { StoryTypeObject } from '@const/storyConst';
-import { Title, Text } from '@ui/Text';
+import { StoryTypeProps } from '@const/storyConst';
 import { StyledLink } from '@ui/Links';
-import { Row } from '@ui/Sections';
+import { StoryInfo } from './StoryInfo';
+import { CommentCount } from './CommentCount';
 
-const StoryCard = (storyData: StoryTypeObject) => {
+const StoryCard = (storyData: StoryTypeProps) => {
 	const story = storyData.data;
 	return (
 		<NewsCardWrapperLink className="nav-link" to={`/item/${story.id}`}>
-			<Title>{story.title}</Title>
-
-			<Row>
-				<Text isBold>{story.by}</Text>
-				<Text>{UnixToLocaleTime(story.time)}</Text>
-				<Text isBold>⭐{story.score}</Text>
-			</Row>
-
-			<Text>Комментариев: {story.descendants}</Text>
+			<StoryInfo data={story} />
+			<CommentCount data={story} />
 		</NewsCardWrapperLink>
 	);
 };

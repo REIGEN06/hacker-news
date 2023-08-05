@@ -8,16 +8,16 @@ import { getStoryById } from '@api/hnApi';
 const StoryPage = () => {
 	const urlParams = useParams();
 	const StoryId = urlParams.id || '0';
-	const { isLoading, data } = useQuery(StoryId, () => getStoryById(+StoryId));
+	const Story = useQuery(StoryId, () => getStoryById(+StoryId));
 
 	return (
 		<DefaultPageWrapper>
 			{!+StoryId ? (
 				<Navigate to="/ERROR" />
 			) : (
-				isLoading && <Title>Пост загружается...</Title>
+				Story.isLoading && <Title>Пост загружается...</Title>
 			)}
-			{data && <StoryContent data={data} />}
+			{Story.data && <StoryContent data={Story.data} />}
 		</DefaultPageWrapper>
 	);
 };

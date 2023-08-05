@@ -12,8 +12,11 @@ export type StoryType = {
 	deleted?: boolean;
 	dead?: boolean;
 };
-export type StoryTypeObject = {
+
+export type StoryTypeProps = {
 	data: StoryType;
+	source?: boolean;
+	text?: boolean;
 };
 
 export type ArrayStoryType = StoryType[] | undefined;
