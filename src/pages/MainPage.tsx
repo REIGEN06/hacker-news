@@ -34,7 +34,7 @@ const MainPage = () => {
 		}
 	}, [stories.isSuccess]);
 
-	const debounce = (fn: Function, ms = 300) => {
+	const debounce = (fn: any, ms = 300) => {
 		let timeoutId: ReturnType<typeof setTimeout>;
 		return function (this: any, ...args: any[]) {
 			clearTimeout(timeoutId);

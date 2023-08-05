@@ -16,6 +16,6 @@
 		"jsx": "react-jsx",
 		"allowSyntheticDefaultImports": false
 	},
-	"extends": "./tsconfig.paths.json",
-	"include": ["src", "**/*.tsx"]
+	"include": ["src", "**/*.tsx", "src/custom.d.ts"],
+	"extends": "./tsconfig.paths.json"
 }
