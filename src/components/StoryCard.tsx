@@ -7,21 +7,19 @@ import { CommentCount } from './CommentCount';
 const StoryCard = (storyData: StoryTypeProps) => {
 	const story = storyData.data;
 	return (
-		<NewsCardWrapperLink className="nav-link" to={`/item/${story.id}`}>
+		<StoryCardWrapperLink className="nav-link" to={`/item/${story.id}`}>
 			<StoryInfo data={story} />
 			<CommentCount data={story} />
-		</NewsCardWrapperLink>
+		</StoryCardWrapperLink>
 	);
 };
 
 export default StoryCard;
 
-const NewsCardWrapperLink = styled(StyledLink)`
+const StoryCardWrapperLink = styled(StyledLink)`
 	border: ${(props) => `1px solid ${props.theme.borders.gray}`};
 	border-radius: 10px;
-	border-width: 1px 0px;
 	padding: 5px 10px;
-	margin: 15px 20px 0px;
-
+	margin: 5px 0px;
 	width: 100%;
 `;

@@ -1,9 +1,8 @@
 import { StoryType } from '@const/storyConst';
 import { UnixToLocaleTime } from '@functions/functions';
-import { StyledLinkBlueWithoutBG } from '@ui/Links';
+import { StyledLink, StyledLinkBlueWithoutBG } from '@ui/Links';
 import { Row } from '@ui/Sections';
 import { Title, Text } from '@ui/Text';
-import { StyledLink } from '@ui/Links';
 import styled from 'styled-components';
 
 type StoryInfoType = {
