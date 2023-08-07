@@ -15,7 +15,7 @@ const SearchStory = () => {
 				}
 			/>
 			<NavbarLink className="nav-link" to={input && `/item/${input}`}>
-				<SearchIcon />
+				{input && <SearchIcon />}
 			</NavbarLink>
 		</SearchWrapper>
 	);
