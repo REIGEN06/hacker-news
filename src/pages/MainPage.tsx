@@ -11,10 +11,12 @@ import { Row } from '@ui/Sections';
 import { getStories } from '@api/hnApi';
 import StoryCard from '@components/StoryCard';
 import { DefaultPageWrapper } from '@ui/PageWrappers';
+import useDebounce from 'src/utils/hooks/useDebounce';
 
 const MainPage = () => {
 	const dispatch = useDispatch();
 	const [input, setInput] = useState('');
+	const debounceInput = useDebounce(setInput, 300);
 
 	const stories = useQuery('stories', () => getStories(), {
 		refetchInterval: 60000,
@@ -34,25 +36,15 @@ const MainPage = () => {
 		}
 	}, [stories.isSuccess]);
 
-	const debounce = (fn: any, ms = 300) => {
-		let timeoutId: ReturnType<typeof setTimeout>;
-		return function (this: any, ...args: any[]) {
-			clearTimeout(timeoutId);
-			timeoutId = setTimeout(() => fn.apply(this, args), ms);
-		};
-	};
-
 	return (
 		<MainPageWrapper>
 			<Title>Страница новостей</Title>
 			<Row>
 				<StyledInput
 					placeholder="Введите название поста"
-					onChange={debounce(
-						(event: React.ChangeEvent<HTMLInputElement>) =>
-							setInput(event.target.value),
-						300
-					)}
+					onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+						debounceInput(event.target.value)
+					}
 				/>
 				<StyledButton padding="0px 5px" onClick={stories.refetch}>
 					{stories.isFetching ? (
